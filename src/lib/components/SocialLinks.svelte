@@ -1,0 +1,9 @@
+<nav class="social-links" aria-label="Community links">
+	<div class="social-links__platforms">
+		<a href="#github" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.4 6.8 9.7.5.1.7-.2.7-.5v-1.9c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1.1 1.5 1.1.9 1.6 2.4 1.1 2.9.9.1-.7.4-1.1.7-1.4-2.2-.3-4.6-1.1-4.6-5.1 0-1.1.4-2 1-2.7-.1-.3-.5-1.3.1-2.7 0 0 .8-.3 2.8 1.1a9 9 0 0 1 5 0c1.9-1.4 2.7-1.1 2.7-1.1.6 1.4.2 2.5.1 2.7.6.7 1 1.6 1 2.7 0 4-2.3 4.8-4.6 5.1.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10.3 10.3 0 0 0 22 12.2C22 6.6 17.5 2 12 2Z"/></svg></a>
+		<a href="#bluesky" aria-label="Bluesky" title="Bluesky"><svg class="bluesky" viewBox="0 0 32 28" aria-hidden="true"><path d="M7.3 3.3C10.8 5.9 14.6 11.2 16 14c1.4-2.8 5.2-8.1 8.7-10.7C27.2 1.5 31 0.1 31 4.7c0 .9-.5 7.3-.9 8.4-1.5 3.8-6.9 4.8-11.7 4l.1.2c.9.1 3.4.4 4.4.8 1.7.6 3.2 1.9 1.5 3.2-3.1 2.4-4.5-.6-4.9-1.4-.1-.2-.2-.4-.3-.6.1.2.2.4.3.6.4.8 1.8 3.8-1.3 1.4-1.7-1.3-.2-2.6 1.5-3.2 1-.4 3.5-.7 4.4-.8l.1-.2c-4.8.8-10.2-.2-11.7-4-.4-1.1-.9-7.5-.9-8.4 0-4.6 3.8-3.2 6.3-1.4Z"/></svg></a>
+		<a href="#x" aria-label="X" title="X"><svg class="x-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h4.5l4.1 5.6L17.4 3H20l-6.2 7.1L20.5 21H16l-4.6-6.2L6 21H3.4l6.8-7.8L4 3Zm3.2 2 9.8 14h1.6L8.8 5H7.2Z"/></svg></a>
+		<a href="#youtube" aria-label="YouTube" title="YouTube"><svg class="youtube" viewBox="0 0 28 20" aria-hidden="true"><rect x="1" y="1" width="26" height="18" rx="5"/><path class="play" d="m11 6 7 4-7 4V6Z"/></svg></a>
+	</div>
+	<a class="social-links__support" href="#support"><svg class="heart" viewBox="0 0 28 25" aria-hidden="true"><path d="M14 23.3S1.5 16.5 1.5 8.6C1.5 5 4.2 2.3 7.7 2.3c2.1 0 4.1 1.1 5.3 2.8 1.2-1.7 3.2-2.8 5.3-2.8 3.5 0 6.2 2.7 6.2 6.3 0 7.9-12.5 14.7-12.5 14.7Z"/></svg>Support development</a>
+</nav>
