@@ -34,9 +34,9 @@
 		</div>
 
 		<div class="actions" aria-label="Get started">
-			<a class="action-card primary-action" href="#start">
+			<a class="action-card primary-action" href="/wallet">
 				<span class="action-icon plus"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 6v20M6 16h20"/></svg></span>
-				<span><strong>Start from scratch</strong><small>Create a new empty wallet</small></span>
+				<span><strong>Start</strong><small>Create a new empty wallet</small></span>
 				<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 8 8-8 8"/></svg>
 			</a>
 			<a class="action-card secondary-action" href="#import">
