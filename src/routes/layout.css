@@ -535,7 +535,7 @@ body:has(.theme-switcher__input:checked) .page-shell {
 
 .balance-page {
   min-height: 100vh;
-  padding: 42px 20px;
+  padding: 25px 20px;
   color: #101b31;
   background:
     radial-gradient(
@@ -873,7 +873,11 @@ body:has(.theme-switcher__input:checked) .page-shell {
   border: 1px solid #e2d8fb;
   border-radius: 22px;
   background:
-    radial-gradient(circle at 13% 25%, rgba(227, 211, 255, 0.42), transparent 10rem),
+    radial-gradient(
+      circle at 13% 25%,
+      rgba(227, 211, 255, 0.42),
+      transparent 10rem
+    ),
     linear-gradient(108deg, #faf8ff, #f8f5ff 58%, #fcfbff);
   box-shadow: 0 7px 20px rgba(72, 48, 130, 0.1);
 }
