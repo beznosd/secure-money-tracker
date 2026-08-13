@@ -41,7 +41,7 @@
 			</a>
 			<a class="action-card secondary-action" href="#import">
 				<span class="action-icon folder"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3.5 9.2a3 3 0 0 1 3-3H14l3 3h8.5a3 3 0 0 1 3 3v12.3a3 3 0 0 1-3 3h-19a3 3 0 0 1-3-3V9.2Z"/></svg></span>
-				<span><strong>Import</strong><small>Import your data from encrypted file</small></span>
+				<span><strong>Import</strong><small>Import wallet from encrypted file</small></span>
 				<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 8 8-8 8"/></svg>
 			</a>
 		</div>
