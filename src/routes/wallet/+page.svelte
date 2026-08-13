@@ -250,6 +250,7 @@
 						</svg>
 					</span>
 					<h2 id="my-money-title">My Money</h2>
+					<span class="overview-title-total">(Total: <strong>$12,540.75</strong>)</span>
 				</div>
 				<span class="overview-view-all">View all</span>
 			</header>
@@ -296,6 +297,7 @@
 				<div class="overview-title">
 					<span class="overview-title-icon categories-title-icon" aria-hidden="true">💸</span>
 					<h2 id="expenses-title">Expenses</h2>
+					<span class="overview-title-total">(Total: <strong>$120.50</strong>)</span>
 				</div>
 				<div class="expense-periods category-periods" aria-label="Expense category period">
 					<span class="expense-period active-period">Today</span>
