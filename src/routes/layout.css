@@ -1271,6 +1271,139 @@ body:has(.theme-switcher__input:checked) .page-shell {
 .owed-to-me p {
   color: #158943;
 }
+.activity-title-icon {
+  font-size: 19px;
+}
+.activity-date-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.activity-periods {
+  height: 34px;
+  padding: 2px;
+  border-radius: 11px;
+}
+.activity-periods .expense-period {
+  min-width: 54px;
+  padding: 0 9px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.activity-periods .custom-period {
+  min-width: 82px;
+}
+.activity-periods .custom-period svg {
+  width: 14px;
+  height: 14px;
+}
+.activity-custom-date {
+  width: 132px;
+  height: 34px;
+  padding: 0 9px;
+  border: 1px solid #dfe4e7;
+  border-radius: 10px;
+  color: #394355;
+  background: #f7f9f8;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 550;
+  outline: none;
+}
+.activity-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+.activity-item {
+  min-width: 0;
+  min-height: 72px;
+  padding: 11px 13px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border: 1px solid #e3e7eb;
+  border-radius: 15px;
+  background: #fbfcfc;
+}
+.activity-icon {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 37px;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+}
+.activity-copy {
+  min-width: 0;
+  flex: 1;
+}
+.activity-copy h3 {
+  margin: 0 0 5px;
+  overflow: hidden;
+  color: #172033;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.activity-copy p,
+.activity-value time {
+  margin: 0;
+  color: #747d8d;
+  font-size: 11px;
+  line-height: 1.1;
+}
+.activity-value {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 5px;
+  text-align: right;
+}
+.activity-value strong {
+  color: #e44950;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+.income-activity .activity-icon,
+.repayment-activity .activity-icon {
+  color: #158943;
+  background: #e7f5e9;
+}
+.income-activity .activity-value strong,
+.repayment-activity .activity-value strong {
+  color: #158943;
+}
+.expense-activity .activity-icon {
+  background: #fff0f1;
+}
+.transfer-activity .activity-icon {
+  color: #337fdc;
+  background: #eaf4ff;
+}
+.activity-see-more {
+  width: 100%;
+  min-height: 38px;
+  margin-top: 10px;
+  border: 1px solid #d7e9dc;
+  border-radius: 12px;
+  color: #158943;
+  background: #f5faf6;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: default;
+}
 
 @media (max-width: 620px) {
   .balance-page {
@@ -1527,5 +1660,64 @@ body:has(.theme-switcher__input:checked) .page-shell {
   }
   .debt-overview-item small {
     font-size: 10px;
+  }
+  .activity-title-icon {
+    font-size: 16px;
+  }
+  .activity-overview .overview-header {
+    flex-wrap: wrap;
+  }
+  .activity-date-filter {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .activity-periods {
+    width: 100%;
+    height: 38px;
+  }
+  .activity-periods .expense-period {
+    min-width: 0;
+    flex: 1;
+    padding: 0 4px;
+    font-size: 10px;
+  }
+  .activity-periods .custom-period {
+    flex: 1.35;
+  }
+  .activity-custom-date {
+    width: 100%;
+    height: 34px;
+    font-size: 11px;
+  }
+  .activity-list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .activity-item {
+    min-height: 66px;
+    padding: 9px 10px;
+    gap: 9px;
+    border-radius: 13px;
+  }
+  .activity-icon {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+    border-radius: 11px;
+    font-size: 18px;
+  }
+  .activity-copy h3,
+  .activity-value strong {
+    font-size: 12px;
+  }
+  .activity-copy p,
+  .activity-value time {
+    font-size: 10px;
+  }
+  .activity-see-more {
+    min-height: 36px;
+    margin-top: 8px;
+    border-radius: 11px;
+    font-size: 12px;
   }
 }

@@ -1,3 +1,7 @@
+<script>
+	let activityDateFilter = $state('today');
+</script>
+
 <svelte:head>
 	<title>Total Balance | Secure Money Tracker</title>
 	<meta name="description" content="Your private money overview." />
@@ -373,6 +377,105 @@
 					</div>
 				</article>
 			</div>
+		</section>
+
+		<section class="overview-section activity-overview" aria-labelledby="recent-activity-title">
+			<header class="overview-header">
+				<div class="overview-title">
+					<span class="overview-title-icon activity-title-icon" aria-hidden="true">🕘</span>
+					<h2 id="recent-activity-title">Recent Activity</h2>
+				</div>
+				<div class="activity-date-filter">
+					<div class="expense-periods activity-periods" aria-label="Recent activity date">
+						<button
+							class="expense-period"
+							class:active-period={activityDateFilter === 'today'}
+							type="button"
+							onclick={() => (activityDateFilter = 'today')}>Today</button
+						>
+						<button
+							class="expense-period"
+							class:active-period={activityDateFilter === 'yesterday'}
+							type="button"
+							onclick={() => (activityDateFilter = 'yesterday')}>Yesterday</button
+						>
+						<button
+							class="expense-period"
+							class:active-period={activityDateFilter === '2-days-ago'}
+							type="button"
+							onclick={() => (activityDateFilter = '2-days-ago')}
+							>2 days ago</button
+						>
+						<button
+							class="expense-period custom-period"
+							class:active-period={activityDateFilter === 'custom'}
+							type="button"
+							onclick={() => (activityDateFilter = 'custom')}
+						>
+							Custom
+							<svg viewBox="0 0 24 24" aria-hidden="true">
+								<rect x="3" y="5" width="18" height="16" rx="2" />
+								<path d="M7 3v4M17 3v4M3 10h18" />
+							</svg>
+						</button>
+					</div>
+					{#if activityDateFilter === 'custom'}
+						<input class="activity-custom-date" type="date" aria-label="Choose activity date" />
+					{/if}
+				</div>
+			</header>
+
+			<div class="activity-list">
+				<article class="activity-item income-activity">
+					<span class="activity-icon" aria-hidden="true">↓</span>
+					<div class="activity-copy">
+						<h3>Salary</h3>
+						<p>Bank Account</p>
+					</div>
+					<div class="activity-value">
+						<strong>+$2,500.00</strong>
+						<time>Today, 9:30 AM</time>
+					</div>
+				</article>
+
+				<article class="activity-item expense-activity">
+					<span class="activity-icon" aria-hidden="true">🍴</span>
+					<div class="activity-copy">
+						<h3>Grocery Store</h3>
+						<p>Food</p>
+					</div>
+					<div class="activity-value">
+						<strong>-$45.20</strong>
+						<time>Today, 12:42 PM</time>
+					</div>
+				</article>
+
+				<article class="activity-item transfer-activity">
+					<span class="activity-icon" aria-hidden="true">⇄</span>
+					<div class="activity-copy">
+						<h3>Transfer to Savings</h3>
+						<p>Bank Account → Savings</p>
+					</div>
+					<div class="activity-value">
+						<strong>-$300.00</strong>
+						<time>Today, 3:10 PM</time>
+					</div>
+				</article>
+
+				<article class="activity-item repayment-activity">
+					<span class="activity-icon" aria-hidden="true">↙</span>
+					<div class="activity-copy">
+						<h3>Debt repayment from Alex</h3>
+						<p>Debt payment</p>
+					</div>
+					<div class="activity-value">
+						<strong>+$150.00</strong>
+						<time>Yesterday, 5:20 PM</time>
+					</div>
+				</article>
+			</div>
+
+			<button class="activity-see-more" type="button">See more...</button>
 		</section>
 	</div>
 </main>
