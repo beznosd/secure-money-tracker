@@ -558,7 +558,7 @@ body:has(.theme-switcher__input:checked) .page-shell {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 9px 24px;
+  margin: 0 9px 20px;
 }
 .brand {
   display: flex;
@@ -623,7 +623,7 @@ body:has(.theme-switcher__input:checked) .page-shell {
 .total-balance-card {
   position: relative;
   container-type: inline-size;
-  aspect-ratio: 820 / 196;
+  aspect-ratio: 820 / 195;
   overflow: hidden;
   border: 1px solid #bde7d0;
   border-radius: clamp(15px, 3.55cqw, 29px);
@@ -642,26 +642,26 @@ body:has(.theme-switcher__input:checked) .page-shell {
   inset: 0;
   display: flex;
   align-items: center;
-  gap: 3cqw;
-  padding: 3.55cqw;
+  gap: 2.6cqw;
+  padding: 2.9cqw;
 }
 .wallet-icon {
-  width: 13.4cqw;
-  height: 13.4cqw;
-  flex: 0 0 13.4cqw;
+  width: 11.5cqw;
+  height: 11.5cqw;
+  flex: 0 0 11.5cqw;
   display: grid;
   place-items: center;
   color: #209a4d;
   border: 1px solid #c9ead7;
-  border-radius: 3.8cqw;
+  border-radius: 3.25cqw;
   background: rgba(255, 255, 255, 0.74);
   box-shadow: 0 6px 16px rgba(35, 120, 72, 0.13);
 }
 .wallet-icon svg {
-  width: 8.7cqw;
-  height: 8.7cqw;
-  margin-top: -9px;
-  margin-right: -5px;
+  width: 7.5cqw;
+  height: 7.5cqw;
+  margin-top: -7px;
+  margin-right: -4px;
   stroke: #278c42;
   stroke-width: 2.2;
   stroke-linecap: round;
@@ -690,13 +690,13 @@ body:has(.theme-switcher__input:checked) .page-shell {
 }
 .balance-label h1 {
   margin: 0;
-  font-size: clamp(12px, 2.32cqw, 19px);
+  font-size: clamp(11px, 2.08cqw, 17px);
   font-weight: 600;
   letter-spacing: -0.04em;
 }
 .balance-label svg {
-  width: clamp(14px, 2.56cqw, 21px);
-  height: clamp(14px, 2.56cqw, 21px);
+  width: clamp(13px, 2.2cqw, 18px);
+  height: clamp(13px, 2.2cqw, 18px);
   fill: none;
   stroke: #818b98;
   stroke-width: 2.1;
@@ -704,8 +704,8 @@ body:has(.theme-switcher__input:checked) .page-shell {
   stroke-linejoin: round;
 }
 .balance-amount {
-  margin: 0.9cqw 0 1.3cqw;
-  font-size: clamp(22px, 5.98cqw, 38px);
+  margin: 0.7cqw 0 1cqw;
+  font-size: clamp(20px, 5.25cqw, 34px);
   font-weight: 760;
   letter-spacing: -0.055em;
   line-height: 1;
@@ -714,7 +714,7 @@ body:has(.theme-switcher__input:checked) .page-shell {
 .balance-change {
   margin: 0;
   color: #129454;
-  font-size: clamp(9px, 1.83cqw, 15px);
+  font-size: clamp(8px, 1.7cqw, 14px);
   font-weight: 650;
   letter-spacing: -0.025em;
   white-space: nowrap;
@@ -746,8 +746,8 @@ body:has(.theme-switcher__input:checked) .page-shell {
   opacity: 0.92;
 }
 .expenses-card {
-  margin-top: 20px;
-  padding: 18px 25px 17px;
+  margin-top: 14px;
+  padding: 14px 20px 13px;
   border: 1px solid #e4e7eb;
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.94);
@@ -757,29 +757,29 @@ body:has(.theme-switcher__input:checked) .page-shell {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 18px;
 }
 .expenses-total {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 13px;
   flex: 0 0 auto;
 }
 .expenses-icon {
-  width: 54px;
-  height: 54px;
+  width: 46px;
+  height: 46px;
   display: grid;
   place-items: center;
   color: #ed4c58;
   border: 1px solid #ffd7da;
-  border-radius: 15px;
+  border-radius: 13px;
   background: linear-gradient(145deg, #fff0f1, #ffe4e7);
-  font-size: 30px;
+  font-size: 26px;
   line-height: 1;
 }
 .expenses-copy h2 {
-  margin: 0 0 4px;
-  font-size: 19px;
+  margin: 0 0 3px;
+  font-size: 17px;
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.35px;
@@ -787,32 +787,32 @@ body:has(.theme-switcher__input:checked) .page-shell {
 .expenses-copy p {
   margin: 0;
   color: #eb4e58;
-  font-size: 29px;
+  font-size: 25px;
   font-weight: 700;
   line-height: 1;
   letter-spacing: -1px;
 }
 .expense-periods {
-  height: 51px;
+  height: 43px;
   padding: 3px;
   display: flex;
   align-items: stretch;
   border: 1px solid #e1e4e8;
-  border-radius: 15px;
+  border-radius: 13px;
   background: #f7f8f9;
   box-shadow: inset 0 1px 2px rgba(23, 35, 54, 0.03);
 }
 .expense-period {
-  min-width: 79px;
-  padding: 0 15px;
+  min-width: 70px;
+  padding: 0 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 9px;
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: 10px;
   color: #172033;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -823,11 +823,11 @@ body:has(.theme-switcher__input:checked) .page-shell {
   box-shadow: 0 2px 7px rgba(225, 61, 73, 0.08);
 }
 .custom-period {
-  min-width: 105px;
+  min-width: 94px;
 }
 .custom-period svg {
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
   fill: none;
   stroke: #596170;
   stroke-width: 2;
@@ -835,13 +835,13 @@ body:has(.theme-switcher__input:checked) .page-shell {
   stroke-linejoin: round;
 }
 .expenses-progress-row {
-  margin-top: 15px;
+  margin-top: 11px;
   display: flex;
   align-items: center;
-  gap: 35px;
+  gap: 28px;
 }
 .expenses-progress {
-  height: 12px;
+  height: 10px;
   flex: 1;
   overflow: hidden;
   border-radius: 999px;
@@ -858,7 +858,7 @@ body:has(.theme-switcher__input:checked) .page-shell {
   width: 135px;
   margin: 0;
   color: #6f7888;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 1;
   text-align: right;
   white-space: nowrap;
@@ -950,41 +950,41 @@ body:has(.theme-switcher__input:checked) .page-shell {
   stroke-linejoin: round;
 }
 .quick-actions {
-  margin-top: 16px;
+  margin-top: 12px;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  gap: 10px;
 }
 .quick-action {
   min-width: 0;
-  min-height: 106px;
-  padding: 13px 10px 12px;
+  min-height: 88px;
+  padding: 10px 8px 9px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 9px;
+  gap: 7px;
   border: 1px solid #e5e8ec;
-  border-radius: 19px;
+  border-radius: 16px;
   color: #172033;
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 6px 17px rgba(23, 35, 54, 0.08);
   font: inherit;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 550;
   white-space: nowrap;
 }
 .quick-action-icon {
-  width: 55px;
-  height: 55px;
+  width: 46px;
+  height: 46px;
   display: grid;
   place-items: center;
   border: 1px solid currentColor;
-  border-radius: 16px;
+  border-radius: 13px;
 }
 .quick-action-icon svg {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   fill: none;
   stroke: currentColor;
   stroke-width: 2.2;
@@ -1446,57 +1446,57 @@ body:has(.theme-switcher__input:checked) .page-shell {
     height: 21px;
   }
   .expenses-card {
-    margin-top: 13px;
-    padding: 14px;
-    border-radius: 17px;
+    margin-top: 10px;
+    padding: 11px 12px;
+    border-radius: 15px;
   }
   .expenses-top-row {
     align-items: flex-start;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
   }
   .expenses-total {
-    gap: 12px;
+    gap: 10px;
   }
   .expenses-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: 13px;
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
   }
   .expenses-icon {
-    font-size: 26px;
+    font-size: 23px;
   }
   .expenses-copy h2 {
-    font-size: 16px;
+    font-size: 15px;
   }
   .expenses-copy p {
-    font-size: 24px;
+    font-size: 21px;
   }
   .expense-periods {
     width: 100%;
-    height: 42px;
-    border-radius: 12px;
+    height: 37px;
+    border-radius: 10px;
   }
   .expense-period {
     min-width: 0;
     flex: 1;
     padding: 0 6px;
-    border-radius: 9px;
-    font-size: 12px;
+    border-radius: 8px;
+    font-size: 11px;
   }
   .custom-period {
     flex: 1.35;
   }
   .custom-period svg {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
   }
   .expenses-progress-row {
-    margin-top: 13px;
-    gap: 14px;
+    margin-top: 9px;
+    gap: 12px;
   }
   .expenses-progress {
-    height: 9px;
+    height: 8px;
   }
   .expenses-progress-row p {
     width: auto;
@@ -1535,24 +1535,24 @@ body:has(.theme-switcher__input:checked) .page-shell {
     flex-basis: 20px;
   }
   .quick-actions {
-    margin-top: 13px;
-    gap: 7px;
+    margin-top: 10px;
+    gap: 6px;
   }
   .quick-action {
-    min-height: 86px;
-    padding: 9px 4px 8px;
-    gap: 7px;
-    border-radius: 15px;
-    font-size: 11px;
+    min-height: 72px;
+    padding: 7px 3px 6px;
+    gap: 5px;
+    border-radius: 13px;
+    font-size: 10px;
   }
   .quick-action-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 13px;
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
   }
   .quick-action-icon svg {
-    width: 29px;
-    height: 29px;
+    width: 24px;
+    height: 24px;
   }
   .overview-section {
     margin-top: 13px;
