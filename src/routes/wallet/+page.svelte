@@ -138,12 +138,7 @@
 		<section class="expenses-card" aria-labelledby="total-expenses-title">
 			<div class="expenses-top-row">
 				<div class="expenses-total">
-					<span class="expenses-icon" aria-hidden="true">
-						<svg viewBox="0 0 32 32">
-							<path d="m6 23 7-7 5 5 8-10" />
-							<path d="M20 11h6v6" />
-						</svg>
-					</span>
+					<span class="expenses-icon" aria-hidden="true">💸</span>
 					<div class="expenses-copy">
 						<h2 id="total-expenses-title">Total Expenses</h2>
 						<p>$120.50</p>
@@ -170,6 +165,26 @@
 				</div>
 				<p>Budget: $500.00</p>
 			</div>
+		</section>
+
+		<section class="debts-card" aria-labelledby="total-debts-title">
+			<span class="debts-icon" aria-hidden="true">
+				<svg viewBox="0 0 48 48">
+					<path d="M11 5h19l7 7v27a4 4 0 0 1-4 4H15a4 4 0 0 1-4-4V5Z" />
+					<path d="M29 5v9h8" />
+					<path d="M25.5 19c-1-2.5-8-2.5-8 1.5 0 4.5 8 2.5 8 7 0 4-6.5 4.5-9 1.5M21 16v17" />
+				</svg>
+			</span>
+
+			<div class="debts-copy">
+				<h2 id="total-debts-title">Total Debts</h2>
+				<p class="debts-amount">$2,450.00</p>
+				<p class="debts-change"><span>↘</span> $350.00 (12.5%) <em>vs last month</em></p>
+			</div>
+
+			<svg class="debts-arrow" viewBox="0 0 24 24" aria-hidden="true">
+				<path d="m9 4 8 8-8 8" />
+			</svg>
 		</section>
 	</div>
 </main>
