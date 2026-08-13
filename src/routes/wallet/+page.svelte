@@ -180,5 +180,46 @@
 				<path d="m9 4 8 8-8 8" />
 			</svg>
 		</section>
+
+		<section class="quick-actions" aria-label="Quick actions">
+			<button class="quick-action income-action" type="button">
+				<span class="quick-action-icon" aria-hidden="true">
+					<svg viewBox="0 0 32 32">
+						<circle cx="16" cy="16" r="12" />
+						<path d="M16 10v12M10 16h12" />
+					</svg>
+				</span>
+				<span>Add Income</span>
+			</button>
+
+			<button class="quick-action expense-action" type="button">
+				<span class="quick-action-icon" aria-hidden="true">
+					<svg viewBox="0 0 32 32">
+						<circle cx="16" cy="16" r="12" />
+						<path d="M10 16h12" />
+					</svg>
+				</span>
+				<span>Add Expense</span>
+			</button>
+
+			<button class="quick-action debt-action" type="button">
+				<span class="quick-action-icon" aria-hidden="true">
+					<svg viewBox="0 0 32 32">
+						<path d="M8 4h11l5 5v19H8V4Z" />
+						<path d="M19 4v6h5M16 15v8M12 19h8" />
+					</svg>
+				</span>
+				<span>Add Debt</span>
+			</button>
+
+			<button class="quick-action transfer-action" type="button">
+				<span class="quick-action-icon" aria-hidden="true">
+					<svg viewBox="0 0 32 32">
+						<path d="M7 11h17M20 7l4 4-4 4M25 21H8M12 17l-4 4 4 4" />
+					</svg>
+				</span>
+				<span>Transfer</span>
+			</button>
+		</section>
 	</div>
 </main>

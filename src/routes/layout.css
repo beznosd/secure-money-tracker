@@ -945,6 +945,78 @@ body:has(.theme-switcher__input:checked) .page-shell {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+.quick-actions {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.quick-action {
+  min-width: 0;
+  min-height: 106px;
+  padding: 13px 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 9px;
+  border: 1px solid #e5e8ec;
+  border-radius: 19px;
+  color: #172033;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 17px rgba(23, 35, 54, 0.08);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 550;
+  white-space: nowrap;
+}
+.quick-action-icon {
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 16px;
+}
+.quick-action-icon svg {
+  width: 35px;
+  height: 35px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.quick-action-icon circle {
+  fill: currentColor;
+  stroke: none;
+}
+.income-action .quick-action-icon {
+  color: #13a86d;
+  border-color: #bfe9d4;
+  background: #e9f9f1;
+}
+.income-action .quick-action-icon path {
+  stroke: #fff;
+}
+.expense-action .quick-action-icon {
+  color: #eb4f59;
+  border-color: #ffd0d4;
+  background: #fff0f1;
+}
+.expense-action .quick-action-icon path {
+  stroke: #fff;
+}
+.debt-action .quick-action-icon {
+  color: #7d4ed8;
+  border-color: #dac8fa;
+  background: #f2eaff;
+}
+.transfer-action .quick-action-icon {
+  color: #337fdc;
+  border-color: #c7ddf8;
+  background: #eaf4ff;
+}
 
 @media (max-width: 620px) {
   .balance-page {
@@ -1074,5 +1146,25 @@ body:has(.theme-switcher__input:checked) .page-shell {
     width: 20px;
     height: 20px;
     flex-basis: 20px;
+  }
+  .quick-actions {
+    margin-top: 13px;
+    gap: 7px;
+  }
+  .quick-action {
+    min-height: 86px;
+    padding: 9px 4px 8px;
+    gap: 7px;
+    border-radius: 15px;
+    font-size: 11px;
+  }
+  .quick-action-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+  }
+  .quick-action-icon svg {
+    width: 29px;
+    height: 29px;
   }
 }
