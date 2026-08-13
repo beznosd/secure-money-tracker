@@ -1021,6 +1021,239 @@ body:has(.theme-switcher__input:checked) .page-shell {
   border-color: #c7ddf8;
   background: #eaf4ff;
 }
+.overview-section {
+  margin-top: 16px;
+  padding: 16px 20px 18px;
+  border: 1px solid #e4e8ec;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 17px rgba(23, 35, 54, 0.07);
+}
+.overview-header {
+  margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.overview-title {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.overview-title h2 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.35px;
+}
+.overview-title-icon {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 25px;
+  font-size: 18px;
+  line-height: 1;
+}
+.money-title-icon svg {
+  width: 28px;
+  height: 28px;
+  margin-top: -3px;
+  margin-right: -2px;
+  overflow: visible;
+  stroke: #278c42;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.money-title-icon .wallet-body {
+  fill: url(#money-wallet-fill);
+}
+.money-title-icon circle {
+  fill: #d5efcf;
+  stroke: none;
+}
+.categories-title-icon {
+  font-size: 20px;
+}
+.category-periods {
+  height: 34px;
+  margin-left: auto;
+  padding: 2px;
+  border-radius: 11px;
+}
+.category-periods .expense-period {
+  min-width: 56px;
+  padding: 0 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+.category-periods .custom-period {
+  min-width: 78px;
+}
+.category-periods .custom-period svg {
+  width: 14px;
+  height: 14px;
+}
+.overview-view-all {
+  flex: 0 0 auto;
+  color: #11874d;
+  font-size: 14px;
+  font-weight: 600;
+}
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.overview-item {
+  min-width: 0;
+  min-height: 72px;
+  padding: 11px 12px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border: 1px solid;
+  border-radius: 15px;
+}
+.overview-item-icon {
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 35px;
+  font-size: 26px;
+  line-height: 1;
+}
+.overview-item-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+.overview-item div {
+  min-width: 0;
+}
+.overview-item h3 {
+  margin: 0 0 5px;
+  overflow: hidden;
+  color: #172033;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.overview-item p {
+  margin: 0;
+  color: #172033;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+.cash-item {
+  border-color: #d9ead8;
+  background: #f6faf4;
+}
+.bank-item {
+  border-color: #d8e7f9;
+  background: #f4f9ff;
+}
+.savings-item {
+  border-color: #f3d9df;
+  background: #fff6f8;
+}
+.card-item {
+  border-color: #f5dfc8;
+  background: #fff9f2;
+}
+.overview-item .negative-amount {
+  color: #e44950;
+}
+.food-item {
+  border-color: #f6dfcd;
+  background: #fff8f2;
+}
+.transport-item {
+  border-color: #dae8fa;
+  background: #f5f9ff;
+}
+.bills-item {
+  border-color: #d2ede9;
+  background: #f2fbfa;
+}
+.shopping-item {
+  border-color: #f4dce4;
+  background: #fff6f9;
+}
+.debt-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.debt-overview-item {
+  min-width: 0;
+  min-height: 82px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid;
+  border-radius: 16px;
+}
+.debt-overview-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 43px;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1;
+}
+.debt-overview-item h3 {
+  margin: 0 0 3px;
+  color: #172033;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+}
+.debt-overview-item p {
+  margin: 0 0 3px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+.debt-overview-item small {
+  color: #747d8d;
+  font-size: 12px;
+}
+.owed-by-me {
+  border-color: #f2d7dc;
+  background: #fff6f7;
+}
+.owed-by-me .debt-overview-icon {
+  color: #e74b54;
+  background: #ffe6e9;
+}
+.owed-by-me p {
+  color: #e1464f;
+}
+.owed-to-me {
+  border-color: #d8ead9;
+  background: #f7fbf4;
+}
+.owed-to-me .debt-overview-icon {
+  color: #15924d;
+  background: #e5f5e7;
+}
+.owed-to-me p {
+  color: #158943;
+}
 
 @media (max-width: 620px) {
   .balance-page {
@@ -1170,5 +1403,109 @@ body:has(.theme-switcher__input:checked) .page-shell {
   .quick-action-icon svg {
     width: 29px;
     height: 29px;
+  }
+  .overview-section {
+    margin-top: 13px;
+    padding: 14px;
+    border-radius: 17px;
+  }
+  .overview-header {
+    margin-bottom: 11px;
+  }
+  .overview-title {
+    gap: 8px;
+  }
+  .overview-title h2 {
+    font-size: 16px;
+  }
+  .overview-title-icon {
+    width: 22px;
+    height: 22px;
+    flex-basis: 22px;
+    font-size: 16px;
+  }
+  .categories-title-icon {
+    font-size: 17px;
+  }
+  .categories-overview .overview-header {
+    flex-wrap: wrap;
+  }
+  .categories-overview .overview-title {
+    order: 1;
+  }
+  .categories-overview .overview-view-all {
+    order: 2;
+  }
+  .category-periods {
+    width: 100%;
+    height: 38px;
+    margin-left: 0;
+    order: 3;
+  }
+  .category-periods .expense-period {
+    min-width: 0;
+    flex: 1;
+    padding: 0 5px;
+    font-size: 11px;
+  }
+  .category-periods .custom-period {
+    flex: 1.35;
+  }
+  .money-title-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+  .overview-view-all {
+    font-size: 12px;
+  }
+  .overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .overview-item {
+    min-height: 67px;
+    padding: 10px;
+    gap: 9px;
+    border-radius: 13px;
+  }
+  .overview-item-icon {
+    width: 31px;
+    height: 31px;
+    flex-basis: 31px;
+    font-size: 23px;
+  }
+  .overview-item-icon img {
+    width: 28px;
+    height: 28px;
+  }
+  .overview-item h3 {
+    font-size: 12px;
+  }
+  .overview-item p {
+    font-size: 13px;
+  }
+  .debt-overview-grid {
+    gap: 8px;
+  }
+  .debt-overview-item {
+    min-height: 78px;
+    padding: 10px;
+    gap: 9px;
+    border-radius: 13px;
+  }
+  .debt-overview-icon {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+    font-size: 21px;
+  }
+  .debt-overview-item h3 {
+    font-size: 12px;
+  }
+  .debt-overview-item p {
+    font-size: 15px;
+  }
+  .debt-overview-item small {
+    font-size: 10px;
   }
 }

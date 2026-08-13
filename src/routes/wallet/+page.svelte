@@ -221,5 +221,156 @@
 				<span>Transfer</span>
 			</button>
 		</section>
+
+		<section class="overview-section money-overview" aria-labelledby="my-money-title">
+			<header class="overview-header">
+				<div class="overview-title">
+					<span class="overview-title-icon money-title-icon" aria-hidden="true">
+						<svg viewBox="0 0 72 72">
+							<defs>
+								<linearGradient
+									id="money-wallet-fill"
+									x1="10"
+									y1="12"
+									x2="59"
+									y2="62"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop stop-color="#34a447" />
+									<stop offset="1" stop-color="#6bc761" />
+								</linearGradient>
+							</defs>
+							<path class="wallet-note" d="m19 25 24-12 4 9-24 12Z" />
+							<path
+								class="wallet-body"
+								d="M14 24h40a7 7 0 0 1 7 7v25a7 7 0 0 1-7 7H14a7 7 0 0 1-7-7V31a7 7 0 0 1 7-7Z"
+							/>
+							<path class="wallet-pocket" d="M45 40h18v13H45a6.5 6.5 0 0 1 0-13Z" />
+							<circle cx="49" cy="46.5" r="2" />
+						</svg>
+					</span>
+					<h2 id="my-money-title">My Money</h2>
+				</div>
+				<span class="overview-view-all">View all</span>
+			</header>
+
+			<div class="overview-grid money-grid">
+				<article class="overview-item cash-item">
+					<span class="overview-item-icon" aria-hidden="true">💵</span>
+					<div>
+						<h3>Cash</h3>
+						<p>$1,250.00</p>
+					</div>
+				</article>
+				<article class="overview-item bank-item">
+					<span class="overview-item-icon" aria-hidden="true">🏦</span>
+					<div>
+						<h3>Bank Account</h3>
+						<p>$6,240.75</p>
+					</div>
+				</article>
+				<article class="overview-item savings-item">
+					<span class="overview-item-icon savings-icon" aria-hidden="true">
+						<img src="/savings-piggy-bank.svg" alt="" />
+					</span>
+					<div>
+						<h3>Savings</h3>
+						<p>$3,550.00</p>
+					</div>
+				</article>
+				<article class="overview-item card-item">
+					<span class="overview-item-icon" aria-hidden="true">💳</span>
+					<div>
+						<h3>Card</h3>
+						<p class="negative-amount">-$500.00</p>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section
+			class="overview-section categories-overview"
+			aria-labelledby="expenses-title"
+		>
+			<header class="overview-header">
+				<div class="overview-title">
+					<span class="overview-title-icon categories-title-icon" aria-hidden="true">💸</span>
+					<h2 id="expenses-title">Expenses</h2>
+				</div>
+				<div class="expense-periods category-periods" aria-label="Expense category period">
+					<span class="expense-period active-period">Today</span>
+					<span class="expense-period">Week</span>
+					<span class="expense-period">Month</span>
+					<span class="expense-period custom-period">
+						Custom
+						<svg viewBox="0 0 24 24" aria-hidden="true">
+							<rect x="3" y="5" width="18" height="16" rx="2" />
+							<path d="M7 3v4M17 3v4M3 10h18" />
+						</svg>
+					</span>
+				</div>
+				<span class="overview-view-all">View all</span>
+			</header>
+
+			<div class="overview-grid categories-grid">
+				<article class="overview-item food-item">
+					<span class="overview-item-icon" aria-hidden="true">🍴</span>
+					<div>
+						<h3>Food</h3>
+						<p>$45.20</p>
+					</div>
+				</article>
+				<article class="overview-item transport-item">
+					<span class="overview-item-icon" aria-hidden="true">🚌</span>
+					<div>
+						<h3>Transport</h3>
+						<p>$28.30</p>
+					</div>
+				</article>
+				<article class="overview-item bills-item">
+					<span class="overview-item-icon" aria-hidden="true">🧾</span>
+					<div>
+						<h3>Bills</h3>
+						<p>$15.00</p>
+					</div>
+				</article>
+				<article class="overview-item shopping-item">
+					<span class="overview-item-icon" aria-hidden="true">🛍️</span>
+					<div>
+						<h3>Shopping</h3>
+						<p>$32.00</p>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section class="overview-section debt-overview" aria-labelledby="debts-title">
+			<header class="overview-header">
+				<div class="overview-title">
+					<span class="overview-title-icon debt-title-icon" aria-hidden="true">📄</span>
+					<h2 id="debts-title">Debts</h2>
+				</div>
+				<span class="overview-view-all">View all</span>
+			</header>
+
+			<div class="debt-overview-grid">
+				<article class="debt-overview-item owed-by-me">
+					<span class="debt-overview-icon" aria-hidden="true">↗</span>
+					<div>
+						<h3>I owe others</h3>
+						<p>$1,850.00</p>
+						<small>2 debts</small>
+					</div>
+				</article>
+				<article class="debt-overview-item owed-to-me">
+					<span class="debt-overview-icon" aria-hidden="true">↙</span>
+					<div>
+						<h3>Others owe me</h3>
+						<p>$600.00</p>
+						<small>1 debt</small>
+					</div>
+				</article>
+			</div>
+		</section>
 	</div>
 </main>
