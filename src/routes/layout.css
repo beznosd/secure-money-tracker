@@ -864,10 +864,10 @@ body:has(.theme-switcher__input:checked) .page-shell {
   white-space: nowrap;
 }
 .debts-card {
+  display: none;
   min-height: 122px;
   margin-top: 16px;
   padding: 20px 29px;
-  display: flex;
   align-items: center;
   gap: 24px;
   border: 1px solid #e2d8fb;
