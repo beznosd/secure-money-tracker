@@ -16,13 +16,7 @@
 				</span>
 				<span><strong>Secure Money Tracker</strong></span>
 			</a>
-			<span class="settings-button" aria-hidden="true">
-				<svg viewBox="0 0 24 24" aria-hidden="true"
-					><circle cx="12" cy="12" r="3.1" /><path
-						d="M19.1 13.6a1.7 1.7 0 0 0 .3 1.9l.1.1-2 2-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5v.2h-2.9v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-2-2 .1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H5.2v-2.9h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1 2-2 .1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5v-.2h2.9v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1 2 2-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.2v2.9h-.2a1.7 1.7 0 0 0-1.5 1Z"
-					/></svg
-				>
-			</span>
+			<span class="settings-button" aria-hidden="true">⚙</span>
 		</header>
 
 		<section class="total-balance-card" aria-labelledby="total-balance-title">

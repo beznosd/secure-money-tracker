@@ -601,15 +601,19 @@ body:has(.theme-switcher__input:checked) .page-shell {
   stroke-linejoin: round;
 }
 .settings-button {
-  width: 62px;
-  height: 62px;
-  display: grid;
-  place-items: center;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #e1e6ea;
   border-radius: 50%;
   color: #182238;
   background: #fff;
   box-shadow: 0 5px 14px rgba(24, 41, 62, 0.08);
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  line-height: 1;
 }
 .settings-button svg {
   width: 31px;
@@ -1438,8 +1442,9 @@ body:has(.theme-switcher__input:checked) .page-shell {
     height: 13px;
   }
   .settings-button {
-    width: 40px;
-    height: 40px;
+    width: 34px;
+    height: 34px;
+    font-size: 19px;
   }
   .settings-button svg {
     width: 21px;
