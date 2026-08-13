@@ -570,18 +570,11 @@ body:has(.theme-switcher__input:checked) .page-shell {
   height: 62px;
   display: grid;
   place-items: center;
-  color: #119f65;
-  border-radius: 20px;
-  background: linear-gradient(145deg, #ddf8e9, #f8fffa);
 }
-.brand-mark svg {
-  width: 45px;
-  height: 51px;
-  fill: #18ad6d;
-  stroke: #fff;
-  stroke-width: 2.3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.brand-mark img {
+  width: 46px;
+  height: 55px;
+  object-fit: contain;
 }
 .brand strong {
   display: block;
@@ -968,9 +961,9 @@ body:has(.theme-switcher__input:checked) .page-shell {
     height: 41px;
     border-radius: 13px;
   }
-  .brand-mark svg {
-    width: 30px;
-    height: 35px;
+  .brand-mark img {
+    width: 31px;
+    height: 37px;
   }
   .brand strong {
     font-size: 17px;

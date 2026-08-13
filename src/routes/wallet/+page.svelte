@@ -8,13 +8,7 @@
 		<header class="balance-header">
 			<a class="brand" href="/" aria-label="Back to Secure Money Tracker">
 				<span class="brand-mark" aria-hidden="true">
-					<svg viewBox="0 0 40 46"
-						><path
-							d="M20 2.5 35.5 8v12.2c0 10.1-6.3 18.3-15.5 23.3C10.8 38.5 4.5 30.3 4.5 20.2V8L20 2.5Z"
-						/><rect x="12.8" y="19.1" width="14.4" height="11" rx="2" /><path
-							d="M15.7 19.1v-3.4a4.3 4.3 0 0 1 8.6 0v3.4M20 23.2v3.1"
-						/></svg
-					>
+					<img src="/favicon.png" alt="" />
 				</span>
 				<span><strong>Secure Money Tracker</strong></span>
 			</a>
