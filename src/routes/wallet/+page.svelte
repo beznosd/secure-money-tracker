@@ -15,6 +15,23 @@
 		incomeAmount = '';
 		isIncomeDialogOpen = false;
 	}
+
+	function saveWallet() {
+		const walletData = {
+			savedAt: new Date().toISOString(),
+			balances: { cash: cashBalance },
+			latestIncome
+		};
+		const downloadUrl = URL.createObjectURL(
+			new Blob([JSON.stringify(walletData, null, 2)], { type: 'application/json' })
+		);
+		const downloadLink = document.createElement('a');
+
+		downloadLink.href = downloadUrl;
+		downloadLink.download = 'secure-money-tracker-wallet.json';
+		downloadLink.click();
+		URL.revokeObjectURL(downloadUrl);
+	}
 </script>
 
 <svelte:head>
@@ -31,7 +48,13 @@
 				</span>
 				<span><strong>Secure Money Tracker</strong></span>
 			</a>
-			<span class="settings-button" aria-hidden="true">⚙</span>
+			<div class="header-actions">
+				<button class="save-button" type="button" onclick={saveWallet}>
+					<span>💾</span>
+					<span>Save</span>
+				</button>
+				<span class="settings-button" aria-hidden="true">⚙</span>
+			</div>
 		</header>
 
 		<section class="total-balance-card" aria-labelledby="total-balance-title">
@@ -141,6 +164,11 @@
 				</g>
 			</svg>
 		</section>
+
+		<aside class="data-loss-notice" role="note">
+			<span class="data-loss-notice-icon" aria-hidden="true">⚠</span>
+			<p><strong>Unsaved data:</strong> refreshing this page will clear your changes. Save your wallet to a file first.</p>
+		</aside>
 
 		<section class="expenses-card" aria-labelledby="total-expenses-title">
 			<div class="expenses-top-row">

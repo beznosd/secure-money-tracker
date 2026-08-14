@@ -539,7 +539,7 @@ body:has(.theme-switcher__input:checked) .page-shell {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin: 0 9px 20px;
+	margin: 0 9px 15px;
 }
 .brand {
 	display: flex;
@@ -578,6 +578,45 @@ body:has(.theme-switcher__input:checked) .page-shell {
 	fill: #17ad6d;
 	stroke: #17ad6d;
 	stroke-width: 1.8;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+.header-actions {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.save-button {
+	height: 48px;
+	padding: 0 15px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+	border: 1px solid #bfe7d0;
+	border-radius: 24px;
+	color: #087d43;
+	background: #effaf3;
+	box-shadow: 0 5px 14px rgba(24, 41, 62, 0.06);
+	font: inherit;
+	font-size: 14px;
+	font-weight: 700;
+	cursor: pointer;
+}
+.save-button:hover {
+	border-color: #91d4ad;
+	background: #e2f7e9;
+}
+.save-button:focus-visible {
+	outline: 3px solid rgba(19, 168, 109, 0.3);
+	outline-offset: 2px;
+}
+.save-button svg {
+	width: 18px;
+	height: 18px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
 	stroke-linecap: round;
 	stroke-linejoin: round;
 }
@@ -725,6 +764,38 @@ body:has(.theme-switcher__input:checked) .page-shell {
 }
 .small-tree {
 	opacity: 0.92;
+}
+.data-loss-notice {
+	margin-top: 12px;
+	padding: 11px 14px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	border: 1px solid #f4d9a2;
+	border-radius: 14px;
+	color: #77531a;
+	background: #fff9eb;
+}
+.data-loss-notice-icon {
+	width: 24px;
+	height: 24px;
+	flex: 0 0 24px;
+	display: grid;
+	place-items: center;
+	border-radius: 50%;
+	color: #a96f0c;
+	background: #fff0c9;
+	font-size: 15px;
+	line-height: 1;
+}
+.data-loss-notice p {
+	margin: 0;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.35;
+}
+.data-loss-notice strong {
+	font-weight: 700;
 }
 .expenses-card {
 	margin-top: 14px;
@@ -1564,6 +1635,19 @@ body:has(.theme-switcher__input:checked) .page-shell {
 	.private-lock {
 		width: 11px;
 		height: 13px;
+	}
+	.header-actions {
+		gap: 7px;
+	}
+	.save-button {
+		height: 34px;
+		padding: 0 10px;
+		gap: 5px;
+		font-size: 11px;
+	}
+	.save-button svg {
+		width: 15px;
+		height: 15px;
 	}
 	.settings-button {
 		width: 34px;
