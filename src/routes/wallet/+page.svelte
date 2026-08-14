@@ -1,5 +1,20 @@
-<script>
+<script lang="ts">
 	let activityDateFilter = $state('today');
+	let isIncomeDialogOpen = $state(false);
+	let incomeAmount = $state('');
+	let cashBalance = $state(0);
+	let latestIncome = $state<number | null>(null);
+
+	function addIncome() {
+		const amount = Number(incomeAmount);
+
+		if (!Number.isFinite(amount) || amount <= 0) return;
+
+		cashBalance += amount;
+		latestIncome = amount;
+		incomeAmount = '';
+		isIncomeDialogOpen = false;
+	}
 </script>
 
 <svelte:head>
@@ -55,8 +70,8 @@
 							/><circle cx="12" cy="12" r="2.5" /></svg
 						>
 					</div>
-					<p class="balance-amount">$12,540.75</p>
-					<p class="balance-change"><span>↗</span> $1,250.40 (11.1%) <em>vs last month</em></p>
+					<p class="balance-amount">${cashBalance.toFixed(2)}</p>
+					<p class="balance-change"><span>↗</span> $0.00 (0.0%) <em>vs last month</em></p>
 				</div>
 			</div>
 			<svg
@@ -133,7 +148,7 @@
 					<span class="expenses-icon" aria-hidden="true">💸</span>
 					<div class="expenses-copy">
 						<h2 id="total-expenses-title">Total Expenses</h2>
-						<p>$120.50</p>
+						<p>$0.00</p>
 					</div>
 				</div>
 
@@ -152,10 +167,10 @@
 			</div>
 
 			<div class="expenses-progress-row">
-				<div class="expenses-progress" aria-label="$120.50 of $500 budget used">
+				<div class="expenses-progress" aria-label="$0.00 of $0.00 budget used">
 					<span></span>
 				</div>
-				<p>Budget: $500.00</p>
+				<p>Budget: $0.00</p>
 			</div>
 		</section>
 
@@ -170,8 +185,8 @@
 
 			<div class="debts-copy">
 				<h2 id="total-debts-title">Total Debts</h2>
-				<p class="debts-amount">$2,450.00</p>
-				<p class="debts-change"><span>↘</span> $350.00 (12.5%) <em>vs last month</em></p>
+				<p class="debts-amount">$0.00</p>
+				<p class="debts-change"><span>↘</span> $0.00 (0.0%) <em>vs last month</em></p>
 			</div>
 
 			<svg class="debts-arrow" viewBox="0 0 24 24" aria-hidden="true">
@@ -180,7 +195,11 @@
 		</section>
 
 		<section class="quick-actions" aria-label="Quick actions">
-			<button class="quick-action income-action" type="button">
+			<button
+				class="quick-action income-action"
+				type="button"
+				onclick={() => (isIncomeDialogOpen = true)}
+			>
 				<span class="quick-action-icon" aria-hidden="true">
 					<svg viewBox="0 0 32 32">
 						<circle cx="16" cy="16" r="12" />
@@ -220,6 +239,52 @@
 			</button>
 		</section>
 
+		{#if isIncomeDialogOpen}
+			<div class="income-dialog-backdrop">
+				<dialog class="income-dialog" open aria-modal="true" aria-labelledby="income-dialog-title">
+					<div class="income-dialog-heading">
+						<div>
+							<p class="income-dialog-eyebrow">New transaction</p>
+							<h2 id="income-dialog-title">Add income</h2>
+						</div>
+						<button
+							class="income-dialog-close"
+							type="button"
+							aria-label="Close add income form"
+							onclick={() => (isIncomeDialogOpen = false)}>×</button
+						>
+					</div>
+					<form
+						onsubmit={(event) => {
+							event.preventDefault();
+							addIncome();
+						}}
+					>
+						<div class="income-amount-field">
+							<span aria-hidden="true">$</span>
+							<input
+								id="income-amount"
+								type="number"
+								min="0.01"
+								step="0.01"
+								placeholder="0.00"
+								bind:value={incomeAmount}
+								required
+							/>
+						</div>
+						<div class="income-dialog-actions">
+							<button
+								class="income-cancel-button"
+								type="button"
+								onclick={() => (isIncomeDialogOpen = false)}>Cancel</button
+							>
+							<button class="income-submit-button" type="submit">Add income</button>
+						</div>
+					</form>
+				</dialog>
+			</div>
+		{/if}
+
 		<section class="overview-section money-overview" aria-labelledby="my-money-title">
 			<header class="overview-header">
 				<div class="overview-title">
@@ -248,7 +313,9 @@
 						</svg>
 					</span>
 					<h2 id="my-money-title">My Money</h2>
-					<span class="overview-title-total">(Total: <strong>$12,540.75</strong>)</span>
+					<span class="overview-title-total"
+						>(Total: <strong>${cashBalance.toFixed(2)}</strong>)</span
+					>
 				</div>
 				<span class="overview-view-all">View all</span>
 			</header>
@@ -258,14 +325,14 @@
 					<span class="overview-item-icon" aria-hidden="true">💵</span>
 					<div>
 						<h3>Cash</h3>
-						<p>$1,250.00</p>
+						<p>${cashBalance.toFixed(2)}</p>
 					</div>
 				</article>
 				<article class="overview-item bank-item">
 					<span class="overview-item-icon" aria-hidden="true">🏦</span>
 					<div>
 						<h3>Bank Account</h3>
-						<p>$6,240.75</p>
+						<p>$0.00</p>
 					</div>
 				</article>
 				<article class="overview-item savings-item">
@@ -274,28 +341,25 @@
 					</span>
 					<div>
 						<h3>Savings</h3>
-						<p>$3,550.00</p>
+						<p>$0.00</p>
 					</div>
 				</article>
 				<article class="overview-item card-item">
 					<span class="overview-item-icon" aria-hidden="true">💳</span>
 					<div>
 						<h3>Card</h3>
-						<p class="negative-amount">-$500.00</p>
+						<p>$0.00</p>
 					</div>
 				</article>
 			</div>
 		</section>
 
-		<section
-			class="overview-section categories-overview"
-			aria-labelledby="expenses-title"
-		>
+		<section class="overview-section categories-overview" aria-labelledby="expenses-title">
 			<header class="overview-header">
 				<div class="overview-title">
 					<span class="overview-title-icon categories-title-icon" aria-hidden="true">💸</span>
 					<h2 id="expenses-title">Expenses</h2>
-					<span class="overview-title-total">(Total: <strong>$120.50</strong>)</span>
+					<span class="overview-title-total">(Total: <strong>$0.00</strong>)</span>
 				</div>
 				<div class="expense-periods category-periods" aria-label="Expense category period">
 					<span class="expense-period active-period">Today</span>
@@ -317,28 +381,28 @@
 					<span class="overview-item-icon" aria-hidden="true">🍴</span>
 					<div>
 						<h3>Food</h3>
-						<p>$45.20</p>
+						<p>$0.00</p>
 					</div>
 				</article>
 				<article class="overview-item transport-item">
 					<span class="overview-item-icon" aria-hidden="true">🚌</span>
 					<div>
 						<h3>Transport</h3>
-						<p>$28.30</p>
+						<p>$0.00</p>
 					</div>
 				</article>
 				<article class="overview-item bills-item">
 					<span class="overview-item-icon" aria-hidden="true">🧾</span>
 					<div>
 						<h3>Bills</h3>
-						<p>$15.00</p>
+						<p>$0.00</p>
 					</div>
 				</article>
 				<article class="overview-item shopping-item">
 					<span class="overview-item-icon" aria-hidden="true">🛍️</span>
 					<div>
 						<h3>Shopping</h3>
-						<p>$32.00</p>
+						<p>$0.00</p>
 					</div>
 				</article>
 			</div>
@@ -358,16 +422,16 @@
 					<span class="debt-overview-icon" aria-hidden="true">↗</span>
 					<div>
 						<h3>I owe others</h3>
-						<p>$1,850.00</p>
-						<small>2 debts</small>
+						<p>$0.00</p>
+						<small>0 debts</small>
 					</div>
 				</article>
 				<article class="debt-overview-item owed-to-me">
 					<span class="debt-overview-icon" aria-hidden="true">↙</span>
 					<div>
 						<h3>Others owe me</h3>
-						<p>$600.00</p>
-						<small>1 debt</small>
+						<p>$0.00</p>
+						<small>0 debts</small>
 					</div>
 				</article>
 			</div>
@@ -397,8 +461,7 @@
 							class="expense-period"
 							class:active-period={activityDateFilter === '2-days-ago'}
 							type="button"
-							onclick={() => (activityDateFilter = '2-days-ago')}
-							>2 days ago</button
+							onclick={() => (activityDateFilter = '2-days-ago')}>2 days ago</button
 						>
 						<button
 							class="expense-period custom-period"
@@ -419,57 +482,26 @@
 				</div>
 			</header>
 
-			<div class="activity-list">
-				<article class="activity-item income-activity">
-					<span class="activity-icon" aria-hidden="true">↓</span>
-					<div class="activity-copy">
-						<h3>Salary</h3>
-						<p>Bank Account</p>
-					</div>
-					<div class="activity-value">
-						<strong>+$2,500.00</strong>
-						<time>Today, 9:30 AM</time>
-					</div>
-				</article>
-
-				<article class="activity-item expense-activity">
-					<span class="activity-icon" aria-hidden="true">🍴</span>
-					<div class="activity-copy">
-						<h3>Grocery Store</h3>
-						<p>Food</p>
-					</div>
-					<div class="activity-value">
-						<strong>-$45.20</strong>
-						<time>Today, 12:42 PM</time>
-					</div>
-				</article>
-
-				<article class="activity-item transfer-activity">
-					<span class="activity-icon" aria-hidden="true">⇄</span>
-					<div class="activity-copy">
-						<h3>Transfer to Savings</h3>
-						<p>Bank Account → Savings</p>
-					</div>
-					<div class="activity-value">
-						<strong>-$300.00</strong>
-						<time>Today, 3:10 PM</time>
-					</div>
-				</article>
-
-				<article class="activity-item repayment-activity">
-					<span class="activity-icon" aria-hidden="true">↙</span>
-					<div class="activity-copy">
-						<h3>Debt repayment from Alex</h3>
-						<p>Debt payment</p>
-					</div>
-					<div class="activity-value">
-						<strong>+$150.00</strong>
-						<time>Yesterday, 5:20 PM</time>
-					</div>
-				</article>
-			</div>
-
-			<button class="activity-see-more" type="button">See more...</button>
+			{#if latestIncome !== null}
+				<div class="activity-list">
+					<article class="activity-item income-activity">
+						<span class="activity-icon" aria-hidden="true">↓</span>
+						<div class="activity-copy">
+							<h3>Income</h3>
+							<p>Cash</p>
+						</div>
+						<div class="activity-value">
+							<strong>+${latestIncome.toFixed(2)}</strong>
+							<time>Just now</time>
+						</div>
+					</article>
+				</div>
+			{:else}
+				<div class="activity-empty-state">
+					<span aria-hidden="true">◌</span>
+					<p>No activity yet</p>
+				</div>
+			{/if}
 		</section>
 	</div>
 </main>
