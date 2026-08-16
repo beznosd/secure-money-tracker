@@ -1,4 +1,6 @@
 <script lang="ts">
+	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
+
 	let activityDateFilter = $state('today');
 	let isIncomeDialogOpen = $state(false);
 	let incomeAmount = $state('');
@@ -54,6 +56,7 @@
 					<span>Save</span>
 				</button>
 				<span class="settings-button" aria-hidden="true">⚙</span>
+				<ThemeSwitcher />
 			</div>
 		</header>
 
