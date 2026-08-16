@@ -1980,6 +1980,9 @@ html[data-theme='dark'] .settings-button {
 	background: #172236;
 	box-shadow: 0 5px 16px rgba(0, 0, 0, 0.24);
 }
+html[data-theme='dark'] .brand-mark img {
+	border-radius: 15%;
+}
 html[data-theme='dark'] .total-balance-card {
 	border-color: #265c4c;
 	background:
