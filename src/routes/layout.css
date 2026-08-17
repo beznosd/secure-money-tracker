@@ -554,8 +554,9 @@ html[data-theme='dark'] .page-shell {
 }
 .brand-mark img {
 	width: 46px;
-	height: 55px;
-	object-fit: contain;
+	height: 46px;
+	border-radius: 18%;
+	object-fit: cover;
 }
 .brand strong {
 	display: block;
@@ -1621,7 +1622,7 @@ html[data-theme='dark'] .page-shell {
 	}
 	.brand-mark img {
 		width: 31px;
-		height: 37px;
+		height: 31px;
 	}
 	.brand strong {
 		font-size: 17px;
@@ -1979,9 +1980,6 @@ html[data-theme='dark'] .settings-button {
 	border-color: #34435a;
 	background: #172236;
 	box-shadow: 0 5px 16px rgba(0, 0, 0, 0.24);
-}
-html[data-theme='dark'] .brand-mark img {
-	border-radius: 15%;
 }
 html[data-theme='dark'] .total-balance-card {
 	border-color: #265c4c;
