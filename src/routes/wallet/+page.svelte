@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { scrypt } from '@noble/hashes/scrypt.js';
+	import { bytesToHex as toHex, randomBytes } from '@noble/hashes/utils.js';
+
 	import { resolve } from '$app/paths';
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 
@@ -12,6 +15,22 @@
 	let appPasswordMessage = $state('');
 	let appPasswordMessageType = $state<'success' | 'error' | ''>('');
 	let currentAppPassword = '';
+
+	let kdfKey = '';
+
+	function getKdfKey(password: string) {
+		const salt = randomBytes(32);
+
+		const key = scrypt(password, salt, {
+			N: 2 ** 17, // iterations count, CPU/memory cost parameter
+			r: 8, // block size
+			p: 1, // parallelization factor, JS doesn't support parallelization
+			dkLen: 32, // byte length of the derived key (256 bits)
+			maxmem: 128 * 8 * (2 ** 17 + 1 + 1)
+		});
+
+		return toHex(key);
+	}
 
 	function clearAppPasswordMessage() {
 		appPasswordMessage = '';
@@ -38,6 +57,8 @@
 		confirmAppPassword = '';
 		appPasswordMessage = currentAppPassword.length ? 'Your app password has been saved.' : '';
 		appPasswordMessageType = 'success';
+
+		kdfKey = getKdfKey(currentAppPassword);
 	}
 
 	function addIncome() {
@@ -163,6 +184,8 @@
 			>
 				{appPasswordMessage}
 			</p>
+
+			<p>KDF KEY: {kdfKey}</p>
 		</section>
 
 		<section class="total-balance-card" aria-labelledby="total-balance-title">
