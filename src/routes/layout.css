@@ -645,6 +645,116 @@ html[data-theme='dark'] .page-shell {
 	stroke-linecap: round;
 	stroke-linejoin: round;
 }
+.app-password-notice {
+	margin-bottom: 10px;
+	color: #234f7f;
+}
+.app-password-notice p {
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.4;
+}
+.app-password-notice strong {
+	font-weight: 750;
+}
+.app-password-card {
+	margin-bottom: 14px;
+	padding: 17px 20px 14px;
+	border: 1px solid #dfe6e3;
+	border-radius: 20px;
+	background: rgba(255, 255, 255, 0.95);
+	box-shadow: 0 7px 20px rgba(23, 35, 54, 0.08);
+}
+.app-password-heading {
+	margin-bottom: 8px;
+}
+.app-password-heading h2 {
+	margin: 0;
+	font-size: 19px;
+	font-weight: 700;
+	letter-spacing: -0.45px;
+	line-height: 1.15;
+}
+.app-password-form {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+	align-items: end;
+	gap: 12px;
+}
+.app-password-field {
+	display: grid;
+	min-width: 0;
+}
+.app-password-field input {
+	width: 100%;
+	height: 43px;
+	padding: 0 12px;
+	border: 1px solid #d7e1dd;
+	border-radius: 11px;
+	color: #172033;
+	background: #fbfdfc;
+	font: inherit;
+	font-size: 14px;
+	outline: none;
+	transition:
+		border-color 0.2s,
+		box-shadow 0.2s,
+		background 0.2s;
+}
+.app-password-field input::placeholder {
+	color: #9aa5b2;
+}
+.app-password-field input:hover {
+	border-color: #b7c9c1;
+}
+.app-password-field input:focus {
+	border-color: #2ba872;
+	background: #fff;
+	box-shadow: 0 0 0 3px rgba(43, 168, 114, 0.13);
+}
+.app-password-field input[aria-invalid='true'] {
+	border-color: #dc6971;
+	box-shadow: 0 0 0 3px rgba(220, 105, 113, 0.1);
+}
+.app-password-save {
+	height: 43px;
+	padding: 0 22px;
+	border: 1px solid #0e9b5f;
+	border-radius: 11px;
+	color: #fff;
+	background: linear-gradient(135deg, #11a568, #13b676);
+	box-shadow: 0 5px 12px rgba(18, 164, 104, 0.2);
+	font: inherit;
+	font-size: 13px;
+	font-weight: 700;
+	cursor: pointer;
+	transition:
+		transform 0.2s,
+		box-shadow 0.2s,
+		background 0.2s;
+}
+.app-password-save:hover {
+	background: linear-gradient(135deg, #0d995d, #10aa6d);
+	box-shadow: 0 7px 16px rgba(18, 164, 104, 0.26);
+	transform: translateY(-1px);
+}
+.app-password-save:focus-visible {
+	outline: 3px solid rgba(19, 168, 109, 0.3);
+	outline-offset: 2px;
+}
+.app-password-feedback {
+	min-height: 17px;
+	margin: 8px 0 -4px;
+	font-size: 12px;
+	font-weight: 650;
+	line-height: 1.4;
+}
+.app-password-feedback.success {
+	color: #138551;
+}
+.app-password-feedback.error {
+	color: #bd3f49;
+}
 .total-balance-card {
 	position: relative;
 	container-type: inline-size;
@@ -767,7 +877,7 @@ html[data-theme='dark'] .page-shell {
 	opacity: 0.92;
 }
 .data-loss-notice {
-	margin-top: 12px;
+	margin-bottom: 12px;
 	padding: 11px 14px;
 	display: flex;
 	align-items: center;
@@ -1659,6 +1769,36 @@ html[data-theme='dark'] .page-shell {
 		width: 21px;
 		height: 21px;
 	}
+	.app-password-notice {
+		margin-bottom: 8px;
+	}
+	.app-password-notice p {
+		font-size: 12px;
+	}
+	.app-password-card {
+		margin-bottom: 10px;
+		padding: 14px 13px 11px;
+		border-radius: 15px;
+	}
+	.app-password-heading h2 {
+		font-size: 17px;
+	}
+	.app-password-form {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 9px;
+	}
+	.app-password-field {
+		min-width: 0;
+	}
+	.app-password-field input,
+	.app-password-save {
+		height: 41px;
+	}
+	.app-password-save {
+		grid-column: 1 / -1;
+		width: 100%;
+		margin-top: 2px;
+	}
 	.expenses-card {
 		margin-top: 10px;
 		padding: 11px 12px;
@@ -1981,6 +2121,24 @@ html[data-theme='dark'] .settings-button {
 	background: #172236;
 	box-shadow: 0 5px 16px rgba(0, 0, 0, 0.24);
 }
+html[data-theme='dark'] .app-password-notice {
+	color: #bdd7f4;
+}
+html[data-theme='dark'] .app-password-card {
+	color: #edf2fa;
+	border-color: #2d3d50;
+	background: rgba(17, 27, 43, 0.96);
+	box-shadow: 0 7px 22px rgba(0, 0, 0, 0.22);
+}
+html[data-theme='dark'] .app-password-field input {
+	color: #edf2fa;
+	border-color: #35485a;
+	background: #0e1827;
+}
+html[data-theme='dark'] .app-password-field input:focus {
+	border-color: #38b985;
+	background: #101c2c;
+}
 html[data-theme='dark'] .total-balance-card {
 	border-color: #265c4c;
 	background:
@@ -2125,6 +2283,12 @@ html[data-theme='dark'] .activity-custom-date {
 }
 
 @media (max-width: 420px) {
+	.app-password-form {
+		grid-template-columns: 1fr;
+	}
+	.app-password-save {
+		grid-column: auto;
+	}
 	.save-button span:last-child {
 		display: none;
 	}

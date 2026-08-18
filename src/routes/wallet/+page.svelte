@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 
 	let activityDateFilter = $state('today');
@@ -6,6 +7,38 @@
 	let incomeAmount = $state('');
 	let cashBalance = $state(0);
 	let latestIncome = $state<number | null>(null);
+	let appPassword = $state('');
+	let confirmAppPassword = $state('');
+	let appPasswordMessage = $state('');
+	let appPasswordMessageType = $state<'success' | 'error' | ''>('');
+	let currentAppPassword = '';
+
+	function clearAppPasswordMessage() {
+		appPasswordMessage = '';
+		appPasswordMessageType = '';
+	}
+
+	function saveAppPassword(event: SubmitEvent) {
+		event.preventDefault();
+
+		if (appPassword.length < 8) {
+			appPasswordMessage = 'Use at least 8 characters for your app password.';
+			appPasswordMessageType = 'error';
+			return;
+		}
+
+		if (appPassword !== confirmAppPassword) {
+			appPasswordMessage = 'The passwords do not match. Please try again.';
+			appPasswordMessageType = 'error';
+			return;
+		}
+
+		currentAppPassword = appPassword;
+		appPassword = '';
+		confirmAppPassword = '';
+		appPasswordMessage = currentAppPassword.length ? 'Your app password has been saved.' : '';
+		appPasswordMessageType = 'success';
+	}
 
 	function addIncome() {
 		const amount = Number(incomeAmount);
@@ -44,7 +77,7 @@
 <main class="balance-page">
 	<div class="balance-app">
 		<header class="balance-header">
-			<a class="brand" href="/" aria-label="Back to Secure Money Tracker">
+			<a class="brand" href={resolve('/')} aria-label="Back to Secure Money Tracker">
 				<span class="brand-mark" aria-hidden="true">
 					<img src="/favicon.png" alt="" />
 				</span>
@@ -59,6 +92,78 @@
 				<ThemeSwitcher />
 			</div>
 		</header>
+
+		<aside class="data-loss-notice" role="note">
+			<span class="data-loss-notice-icon" aria-hidden="true">⚠</span>
+			<p>
+				<strong>
+					Refreshing this page will clear your changes. Provide the password below to encrypt and
+					keep the changes.
+				</strong>
+			</p>
+		</aside>
+
+		<section class="app-password-card" aria-labelledby="app-password-title">
+			<header class="app-password-heading">
+				<h2 id="app-password-title">Create password</h2>
+			</header>
+
+			<aside class="app-password-notice" id="app-password-notice" role="note">
+				<p>
+					<strong>
+						Needed to encrypt, decrypt data stored in web browser and exported files.
+					</strong>
+				</p>
+			</aside>
+
+			<form class="app-password-form" onsubmit={saveAppPassword}>
+				<div class="app-password-field">
+					<input
+						id="app-password"
+						name="app-password"
+						type="password"
+						aria-label="Password"
+						autocomplete="new-password"
+						placeholder="Enter password"
+						minlength="8"
+						aria-describedby="app-password-notice app-password-feedback"
+						aria-invalid={appPasswordMessageType === 'error'}
+						bind:value={appPassword}
+						oninput={clearAppPasswordMessage}
+						required
+					/>
+				</div>
+
+				<div class="app-password-field">
+					<input
+						id="confirm-app-password"
+						name="confirm-app-password"
+						type="password"
+						aria-label="Confirm password"
+						autocomplete="new-password"
+						placeholder="Repeat password"
+						minlength="8"
+						aria-describedby="app-password-notice app-password-feedback"
+						aria-invalid={appPasswordMessageType === 'error'}
+						bind:value={confirmAppPassword}
+						oninput={clearAppPasswordMessage}
+						required
+					/>
+				</div>
+
+				<button class="app-password-save" type="submit">Save</button>
+			</form>
+
+			<p
+				class="app-password-feedback"
+				class:success={appPasswordMessageType === 'success'}
+				class:error={appPasswordMessageType === 'error'}
+				id="app-password-feedback"
+				aria-live="polite"
+			>
+				{appPasswordMessage}
+			</p>
+		</section>
 
 		<section class="total-balance-card" aria-labelledby="total-balance-title">
 			<div class="balance-card-content">
@@ -167,11 +272,6 @@
 				</g>
 			</svg>
 		</section>
-
-		<aside class="data-loss-notice" role="note">
-			<span class="data-loss-notice-icon" aria-hidden="true">⚠</span>
-			<p><strong>Unsaved data:</strong> refreshing this page will clear your changes. Save your wallet to a file first.</p>
-		</aside>
 
 		<section class="expenses-card" aria-labelledby="total-expenses-title">
 			<div class="expenses-top-row">
