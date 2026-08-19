@@ -8,6 +8,7 @@
 	let activityDateFilter = $state('today');
 	let isIncomeDialogOpen = $state(false);
 	let isDataLossNoticeVisible = $state(true);
+	let isPasswordCardVisible = $state(true);
 	let incomeAmount = $state('');
 	let cashBalance = $state(0);
 	let latestIncome = $state<number | null>(null);
@@ -135,69 +136,79 @@
 			</aside>
 		{/if}
 
-		<section class="app-password-card" aria-labelledby="app-password-title">
-			<header class="app-password-heading">
-				<h2 id="app-password-title">Create password</h2>
-			</header>
+		{#if isPasswordCardVisible}
+			<section class="app-password-card" aria-labelledby="app-password-title">
+				<header class="app-password-heading">
+					<h2 id="app-password-title">Create password</h2>
+					<button
+						class="data-loss-notice-close app-password-close"
+						type="button"
+						aria-label="Dismiss password form"
+						onclick={() => (isPasswordCardVisible = false)}
+					>
+						<span class="data-loss-notice-close-icon" aria-hidden="true"></span>
+					</button>
+				</header>
 
-			<aside class="app-password-notice" id="app-password-notice" role="note">
-				<p>
-					<strong>
-						Needed to encrypt, decrypt data stored in web browser and exported files.
-					</strong>
+				<aside class="app-password-notice" id="app-password-notice" role="note">
+					<p>
+						<strong>
+							Needed to encrypt, decrypt data stored in web browser and exported files.
+						</strong>
+					</p>
+				</aside>
+
+				<form class="app-password-form" onsubmit={saveAppPassword}>
+					<div class="app-password-field">
+						<input
+							id="app-password"
+							name="app-password"
+							type="password"
+							aria-label="Password"
+							autocomplete="new-password"
+							placeholder="Enter password"
+							minlength="8"
+							aria-describedby="app-password-notice app-password-feedback"
+							aria-invalid={appPasswordMessageType === 'error'}
+							bind:value={appPassword}
+							oninput={clearAppPasswordMessage}
+							required
+						/>
+					</div>
+
+					<div class="app-password-field">
+						<input
+							id="confirm-app-password"
+							name="confirm-app-password"
+							type="password"
+							aria-label="Confirm password"
+							autocomplete="new-password"
+							placeholder="Repeat password"
+							minlength="8"
+							aria-describedby="app-password-notice app-password-feedback"
+							aria-invalid={appPasswordMessageType === 'error'}
+							bind:value={confirmAppPassword}
+							oninput={clearAppPasswordMessage}
+							required
+						/>
+					</div>
+
+					<button class="app-password-save" type="submit">Save</button>
+				</form>
+
+				<p
+					class="app-password-feedback"
+					class:success={appPasswordMessageType === 'success'}
+					class:error={appPasswordMessageType === 'error'}
+					id="app-password-feedback"
+					aria-live="polite"
+				>
+					{appPasswordMessage}
 				</p>
-			</aside>
 
-			<form class="app-password-form" onsubmit={saveAppPassword}>
-				<div class="app-password-field">
-					<input
-						id="app-password"
-						name="app-password"
-						type="password"
-						aria-label="Password"
-						autocomplete="new-password"
-						placeholder="Enter password"
-						minlength="8"
-						aria-describedby="app-password-notice app-password-feedback"
-						aria-invalid={appPasswordMessageType === 'error'}
-						bind:value={appPassword}
-						oninput={clearAppPasswordMessage}
-						required
-					/>
-				</div>
-
-				<div class="app-password-field">
-					<input
-						id="confirm-app-password"
-						name="confirm-app-password"
-						type="password"
-						aria-label="Confirm password"
-						autocomplete="new-password"
-						placeholder="Repeat password"
-						minlength="8"
-						aria-describedby="app-password-notice app-password-feedback"
-						aria-invalid={appPasswordMessageType === 'error'}
-						bind:value={confirmAppPassword}
-						oninput={clearAppPasswordMessage}
-						required
-					/>
-				</div>
-
-				<button class="app-password-save" type="submit">Save</button>
-			</form>
-
-			<p
-				class="app-password-feedback"
-				class:success={appPasswordMessageType === 'success'}
-				class:error={appPasswordMessageType === 'error'}
-				id="app-password-feedback"
-				aria-live="polite"
-			>
-				{appPasswordMessage}
-			</p>
-
-			<p>KDF KEY: {kdfKey}</p>
-		</section>
+				<p>KDF KEY: {kdfKey}</p>
+			</section>
+		{/if}
 
 		<section class="total-balance-card" aria-labelledby="total-balance-title">
 			<div class="balance-card-content">

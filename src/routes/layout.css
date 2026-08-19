@@ -666,6 +666,10 @@ html[data-theme='dark'] .page-shell {
 	box-shadow: 0 7px 20px rgba(23, 35, 54, 0.08);
 }
 .app-password-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
 	margin-bottom: 8px;
 }
 .app-password-heading h2 {
@@ -956,6 +960,16 @@ html[data-theme='dark'] .page-shell {
 .data-loss-notice-close:focus-visible {
 	outline: 3px solid rgba(169, 111, 12, 0.28);
 	outline-offset: 1px;
+}
+.app-password-close {
+	color: #687386;
+}
+.app-password-close:hover {
+	color: #344054;
+	background: #eef1f4;
+}
+.app-password-close:focus-visible {
+	outline-color: rgba(104, 115, 134, 0.28);
 }
 .expenses-card {
 	margin-top: 14px;
@@ -2217,6 +2231,13 @@ html[data-theme='dark'] .data-loss-notice-close {
 html[data-theme='dark'] .data-loss-notice-close:hover {
 	color: #ffe1a0;
 	background: #443318;
+}
+html[data-theme='dark'] .app-password-close {
+	color: #aab6c7;
+}
+html[data-theme='dark'] .app-password-close:hover {
+	color: #eef3fa;
+	background: #2a374a;
 }
 html[data-theme='dark'] .expenses-card,
 html[data-theme='dark'] .quick-action,
