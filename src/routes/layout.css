@@ -900,6 +900,7 @@ html[data-theme='dark'] .page-shell {
 	line-height: 1;
 }
 .data-loss-notice p {
+	flex: 1;
 	margin: 0;
 	font-size: 13px;
 	font-weight: 500;
@@ -907,6 +908,54 @@ html[data-theme='dark'] .page-shell {
 }
 .data-loss-notice strong {
 	font-weight: 700;
+}
+.data-loss-notice-close {
+	width: 28px;
+	height: 28px;
+	flex: 0 0 28px;
+	display: grid;
+	place-items: center;
+	margin-left: auto;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	color: #8f641c;
+	background: transparent;
+	cursor: pointer;
+	transition:
+		color 0.2s,
+		background 0.2s;
+}
+.data-loss-notice-close-icon {
+	position: relative;
+	display: block;
+	width: 14px;
+	height: 14px;
+}
+.data-loss-notice-close-icon::before,
+.data-loss-notice-close-icon::after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 14px;
+	height: 2px;
+	border-radius: 999px;
+	background: currentColor;
+	content: '';
+}
+.data-loss-notice-close-icon::before {
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+.data-loss-notice-close-icon::after {
+	transform: translate(-50%, -50%) rotate(-45deg);
+}
+.data-loss-notice-close:hover {
+	color: #714b0e;
+	background: #ffedc4;
+}
+.data-loss-notice-close:focus-visible {
+	outline: 3px solid rgba(169, 111, 12, 0.28);
+	outline-offset: 1px;
 }
 .expenses-card {
 	margin-top: 14px;
@@ -2160,6 +2209,13 @@ html[data-theme='dark'] .data-loss-notice {
 }
 html[data-theme='dark'] .data-loss-notice-icon {
 	color: #f2bd55;
+	background: #443318;
+}
+html[data-theme='dark'] .data-loss-notice-close {
+	color: #e7c47e;
+}
+html[data-theme='dark'] .data-loss-notice-close:hover {
+	color: #ffe1a0;
 	background: #443318;
 }
 html[data-theme='dark'] .expenses-card,

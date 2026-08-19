@@ -7,6 +7,7 @@
 
 	let activityDateFilter = $state('today');
 	let isIncomeDialogOpen = $state(false);
+	let isDataLossNoticeVisible = $state(true);
 	let incomeAmount = $state('');
 	let cashBalance = $state(0);
 	let latestIncome = $state<number | null>(null);
@@ -16,7 +17,7 @@
 	let appPasswordMessageType = $state<'success' | 'error' | ''>('');
 	let currentAppPassword = '';
 
-	let kdfKey = '';
+	let kdfKey = $state('');
 
 	function getKdfKey(password: string) {
 		const salt = randomBytes(32);
@@ -107,22 +108,32 @@
 			<div class="header-actions">
 				<button class="save-button" type="button" onclick={saveWallet}>
 					<span>💾</span>
-					<span>Save</span>
+					<span>Export to file</span>
 				</button>
 				<span class="settings-button" aria-hidden="true">⚙</span>
 				<ThemeSwitcher />
 			</div>
 		</header>
 
-		<aside class="data-loss-notice" role="note">
-			<span class="data-loss-notice-icon" aria-hidden="true">⚠</span>
-			<p>
-				<strong>
-					Refreshing this page will clear your changes. Provide the password below to encrypt and
-					keep the changes.
-				</strong>
-			</p>
-		</aside>
+		{#if isDataLossNoticeVisible}
+			<aside class="data-loss-notice" role="note">
+				<span class="data-loss-notice-icon" aria-hidden="true">⚠</span>
+				<p>
+					<strong>
+						Refreshing this page will clear your changes. Provide the password below to encrypt and
+						keep the changes.
+					</strong>
+				</p>
+				<button
+					class="data-loss-notice-close"
+					type="button"
+					aria-label="Dismiss warning"
+					onclick={() => (isDataLossNoticeVisible = false)}
+				>
+					<span class="data-loss-notice-close-icon" aria-hidden="true"></span>
+				</button>
+			</aside>
+		{/if}
 
 		<section class="app-password-card" aria-labelledby="app-password-title">
 			<header class="app-password-heading">
