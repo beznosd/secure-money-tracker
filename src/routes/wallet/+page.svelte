@@ -10,8 +10,11 @@
 	let isDataLossNoticeVisible = $state(true);
 	let isPasswordCardVisible = $state(true);
 	let incomeAmount = $state('');
+	let incomeCategory = $state('');
+	let incomeCategories = $state(['Salary', 'Freelance', 'Gift', 'Interest', 'Other']);
 	let cashBalance = $state(0);
 	let latestIncome = $state<number | null>(null);
+	let latestIncomeCategory = $state<string | null>(null);
 	let appPassword = $state('');
 	let confirmAppPassword = $state('');
 	let appPasswordMessage = $state('');
@@ -65,12 +68,22 @@
 
 	function addIncome() {
 		const amount = Number(incomeAmount);
+		const category = incomeCategory.trim();
 
-		if (!Number.isFinite(amount) || amount <= 0) return;
+		if (!Number.isFinite(amount) || amount <= 0 || !category) return;
+
+		const existingCategory = incomeCategories.find(
+			(item) => item.toLocaleLowerCase() === category.toLocaleLowerCase()
+		);
+		const savedCategory = existingCategory ?? category;
+
+		if (!existingCategory) incomeCategories.push(savedCategory);
 
 		cashBalance += amount;
 		latestIncome = amount;
+		latestIncomeCategory = savedCategory;
 		incomeAmount = '';
+		incomeCategory = '';
 		isIncomeDialogOpen = false;
 	}
 
@@ -78,7 +91,9 @@
 		const walletData = {
 			savedAt: new Date().toISOString(),
 			balances: { cash: cashBalance },
-			latestIncome
+			latestIncome,
+			latestIncomeCategory,
+			incomeCategories
 		};
 		const downloadUrl = URL.createObjectURL(
 			new Blob([JSON.stringify(walletData, null, 2)], { type: 'application/json' })
@@ -131,7 +146,7 @@
 					aria-label="Dismiss warning"
 					onclick={() => (isDataLossNoticeVisible = false)}
 				>
-					<span class="data-loss-notice-close-icon" aria-hidden="true"></span>
+					<span class="close-button-icon" aria-hidden="true"></span>
 				</button>
 			</aside>
 		{/if}
@@ -146,7 +161,7 @@
 						aria-label="Dismiss password form"
 						onclick={() => (isPasswordCardVisible = false)}
 					>
-						<span class="data-loss-notice-close-icon" aria-hidden="true"></span>
+						<span class="close-button-icon" aria-hidden="true"></span>
 					</button>
 				</header>
 
@@ -427,8 +442,10 @@
 							class="income-dialog-close"
 							type="button"
 							aria-label="Close add income form"
-							onclick={() => (isIncomeDialogOpen = false)}>×</button
+							onclick={() => (isIncomeDialogOpen = false)}
 						>
+							<span class="close-button-icon" aria-hidden="true"></span>
+						</button>
 					</div>
 					<form
 						onsubmit={(event) => {
@@ -436,17 +453,47 @@
 							addIncome();
 						}}
 					>
-						<div class="income-amount-field">
-							<span aria-hidden="true">$</span>
-							<input
-								id="income-amount"
-								type="number"
-								min="0.01"
-								step="0.01"
-								placeholder="0.00"
-								bind:value={incomeAmount}
-								required
-							/>
+						<div class="income-form-fields">
+							<div class="income-form-field">
+								<label for="income-amount">Amount</label>
+								<div class="income-amount-field">
+									<span aria-hidden="true">$</span>
+									<input
+										id="income-amount"
+										type="number"
+										min="0.01"
+										step="0.01"
+										placeholder="0.00"
+										bind:value={incomeAmount}
+										required
+									/>
+								</div>
+							</div>
+
+							<div class="income-form-field">
+								<label for="income-category">Income category</label>
+								<div class="income-category-field">
+									<input
+										id="income-category"
+										type="text"
+										list="income-category-options"
+										placeholder="Choose or add category"
+										maxlength="40"
+										autocomplete="off"
+										aria-describedby="income-category-help"
+										bind:value={incomeCategory}
+										required
+									/>
+								</div>
+								<p class="income-category-help" id="income-category-help">
+									Choose an existing category or type a new one.
+								</p>
+								<datalist id="income-category-options">
+									{#each incomeCategories as category (category)}
+										<option value={category}></option>
+									{/each}
+								</datalist>
+							</div>
 						</div>
 						<div class="income-dialog-actions">
 							<button
@@ -664,7 +711,7 @@
 						<span class="activity-icon" aria-hidden="true">↓</span>
 						<div class="activity-copy">
 							<h3>Income</h3>
-							<p>Cash</p>
+							<p>{latestIncomeCategory ?? 'Uncategorized'} · Cash</p>
 						</div>
 						<div class="activity-value">
 							<strong>+${latestIncome.toFixed(2)}</strong>
