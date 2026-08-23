@@ -3,6 +3,7 @@
 	import { bytesToHex as toHex, randomBytes } from '@noble/hashes/utils.js';
 
 	import { resolve } from '$app/paths';
+	import CreatableCombobox from '$lib/components/CreatableCombobox.svelte';
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 
 	let activityDateFilter = $state('today');
@@ -470,30 +471,16 @@
 								</div>
 							</div>
 
-							<div class="income-form-field">
-								<label for="income-category">Income category</label>
-								<div class="income-category-field">
-									<input
-										id="income-category"
-										type="text"
-										list="income-category-options"
-										placeholder="Choose or add category"
-										maxlength="40"
-										autocomplete="off"
-										aria-describedby="income-category-help"
-										bind:value={incomeCategory}
-										required
-									/>
-								</div>
-								<p class="income-category-help" id="income-category-help">
-									Choose an existing category or type a new one.
-								</p>
-								<datalist id="income-category-options">
-									{#each incomeCategories as category (category)}
-										<option value={category}></option>
-									{/each}
-								</datalist>
-							</div>
+							<CreatableCombobox
+								id="income-category"
+								label="Income category"
+								options={incomeCategories}
+								placeholder="Choose or add category"
+								helperText="Choose an existing category or type a new one."
+								maxlength={40}
+								required
+								bind:value={incomeCategory}
+							/>
 						</div>
 						<div class="income-dialog-actions">
 							<button
