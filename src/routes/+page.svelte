@@ -1,5 +1,7 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import SocialLinks from '$lib/components/SocialLinks.svelte';
+	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 </script>
 
 <svelte:head>
@@ -8,6 +10,10 @@
 </svelte:head>
 
 <main class="page-shell">
+	<div class="landing-theme-switcher">
+		<ThemeSwitcher />
+	</div>
+
 	<section class="hero" aria-labelledby="page-title">
 		<div class="intro">
 			<h1 id="page-title">Secure Money Tracker</h1>
@@ -34,7 +40,7 @@
 		</div>
 
 		<div class="actions" aria-label="Get started">
-			<a class="action-card primary-action" href="/wallet">
+			<a class="action-card primary-action" href={resolve('/wallet')}>
 				<span class="action-icon plus"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 6v20M6 16h20"/></svg></span>
 				<span><strong>Start</strong><small>Create a new empty wallet</small></span>
 				<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 8 8-8 8"/></svg>

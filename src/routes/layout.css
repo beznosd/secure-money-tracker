@@ -36,6 +36,7 @@ svg {
 	--muted: #566b91;
 	--line: #e1e8f1;
 	--blue: #2875ed;
+	position: relative;
 	min-height: 100vh;
 	background:
 		radial-gradient(circle at 51% 16%, rgba(227, 238, 255, 0.25), transparent 27rem), var(--page-bg);
@@ -43,6 +44,12 @@ svg {
 	transition:
 		color 0.3s ease,
 		background 0.3s ease;
+}
+.landing-theme-switcher {
+	position: absolute;
+	top: 24px;
+	right: 24px;
+	z-index: 1;
 }
 html[data-theme='dark'] .page-shell {
 	--page-bg: #0b1327;
@@ -385,6 +392,10 @@ html[data-theme='dark'] .page-shell {
 }
 
 @media (max-width: 620px) {
+	.landing-theme-switcher {
+		top: 14px;
+		right: 14px;
+	}
 	.hero {
 		width: min(100% - 24px, 640px);
 		padding: 36px 0 20px;
@@ -520,6 +531,12 @@ html[data-theme='dark'] .page-shell {
 	.built-note svg {
 		width: 21px;
 		height: 21px;
+	}
+}
+
+@media (max-width: 429px) {
+	.landing-theme-switcher {
+		display: none;
 	}
 }
 
