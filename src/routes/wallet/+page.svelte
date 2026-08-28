@@ -137,8 +137,7 @@
 				<span class="data-loss-notice-icon" aria-hidden="true">⚠</span>
 				<p>
 					<strong>
-						Refreshing this page will clear your changes. Provide the password below to encrypt and
-						keep the changes.
+						Without the password unencrypted data will be saved to the browser storage.
 					</strong>
 				</p>
 				<button
@@ -169,7 +168,7 @@
 				<aside class="app-password-notice" id="app-password-notice" role="note">
 					<p>
 						<strong>
-							Needed to encrypt, decrypt data stored in web browser and exported files.
+							Needed to encrypt data stored in web browser and for encryption of exported files.
 						</strong>
 					</p>
 				</aside>
