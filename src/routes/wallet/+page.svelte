@@ -1,12 +1,15 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { resolve } from '$app/paths';
+
 	import { scrypt } from '@noble/hashes/scrypt.js';
 	import { bytesToHex as toHex, randomBytes } from '@noble/hashes/utils.js';
-	import { onMount } from 'svelte';
+	import { xchacha20poly1305 } from '@noble/ciphers/chacha.js';
+	import { managedNonce } from '@noble/ciphers/utils.js';
 
-	import { resolve } from '$app/paths';
+	import { getIncomeRecords, saveIncomeRecord, type IncomeRecord } from '$lib/income-storage.js';
 	import CreatableCombobox from '$lib/components/CreatableCombobox.svelte';
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
-	import { getIncomeRecords, saveIncomeRecord, type IncomeRecord } from '$lib/income-storage.js';
 
 	const defaultIncomeCategories = ['Salary', 'Freelance', 'Gift', 'Interest', 'Other'];
 
@@ -32,7 +35,8 @@
 	let currentAppPassword = '';
 	let incomeDataLoadPromise = Promise.resolve();
 
-	let kdfKey = $state('');
+	let kdfKeyHex = $state('');
+	let kdfKeyBytes = $state<Uint8Array | null>(null);
 
 	const cashBalance = $derived(
 		incomeRecords.reduce((total, income) => total + Math.round(income.amount * 100), 0) / 100
@@ -79,18 +83,21 @@
 		}
 	}
 
-	function getKdfKey(password: string) {
+	function getKdfKey(password: string): { bytes: Uint8Array; hex: string } {
 		const salt = randomBytes(32);
 
 		const key = scrypt(password, salt, {
-			N: 2 ** 17, // iterations count, CPU/memory cost parameter
+			N: 2 ** 17, // iterations count, CPU/memory cost parameter (134,217,728 bytes of memory or 128 MiB)
 			r: 8, // block size
 			p: 1, // parallelization factor, JS doesn't support parallelization
 			dkLen: 32, // byte length of the derived key (256 bits)
 			maxmem: 128 * 8 * (2 ** 17 + 1 + 1)
 		});
 
-		return toHex(key);
+		return {
+			bytes: key,
+			hex: toHex(key)
+		};
 	}
 
 	function clearAppPasswordMessage() {
@@ -119,7 +126,9 @@
 		appPasswordMessage = currentAppPassword.length ? 'Your app password has been saved.' : '';
 		appPasswordMessageType = 'success';
 
-		kdfKey = getKdfKey(currentAppPassword);
+		const key = getKdfKey(currentAppPassword);
+		kdfKeyBytes = key.bytes;
+		kdfKeyHex = key.hex;
 	}
 
 	async function addIncome(event: SubmitEvent) {
@@ -189,24 +198,38 @@
 	function saveWallet() {
 		if (!isIncomeDataReady) return;
 
-		const walletData = {
+		const wallet = {
 			savedAt: new Date().toISOString(),
 			balances: { cash: cashBalance },
 			incomeRecords,
 			incomeCategories
 		};
-		const downloadUrl = URL.createObjectURL(
-			new Blob([JSON.stringify(walletData, null, 2)], { type: 'application/json' })
-		);
-		const downloadLink = document.createElement('a');
+		const data = new TextEncoder().encode(JSON.stringify(wallet, null, 2));
 
+		let blob: Blob;
+		let extension: string;
+		if (kdfKeyBytes) {
+			const chacha = managedNonce(xchacha20poly1305)(kdfKeyBytes);
+			const ciphertext = chacha.encrypt(data);
+
+			blob = new Blob([ciphertext], { type: 'application/octet-stream' });
+			extension = '.enc';
+		} else {
+			blob = new Blob([data], { type: 'application/json' });
+			extension = '.json';
+		}
+
+		const downloadUrl = URL.createObjectURL(blob);
+		const downloadLink = document.createElement('a');
 		downloadLink.href = downloadUrl;
-		downloadLink.download = 'secure-money-tracker-wallet.json';
+		downloadLink.download = `secure-money-tracker-wallet${extension}`;
 		downloadLink.hidden = true;
 		document.body.append(downloadLink);
+
 		downloadLink.click();
 		downloadLink.remove();
-		window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 0);
+
+		window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 1);
 	}
 </script>
 
@@ -322,7 +345,7 @@
 					{appPasswordMessage}
 				</p>
 
-				<p>KDF KEY: {kdfKey}</p>
+				<p>KDF KEY: {kdfKeyHex}</p>
 			</section>
 		{/if}
 
