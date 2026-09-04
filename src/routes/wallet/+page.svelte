@@ -9,6 +9,7 @@
 
 	import { getIncomeRecords, saveIncomeRecord, type IncomeRecord } from '$lib/income-storage.js';
 	import CreatableCombobox from '$lib/components/CreatableCombobox.svelte';
+	import QuickActionButton from '$lib/components/QuickActionButton.svelte';
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 
 	const defaultIncomeCategories = ['Salary', 'Freelance', 'Gift', 'Interest', 'Other'];
@@ -506,19 +507,16 @@
 		</section>
 
 		<section class="quick-actions" aria-label="Quick actions">
-			<button
-				class="quick-action income-action"
-				type="button"
+			<QuickActionButton
+				class="income-action"
+				label="Add Income"
 				disabled={!isIncomeDataReady}
 				onclick={() => (isIncomeDialogOpen = true)}>
-				<span class="quick-action-icon" aria-hidden="true">
-					<svg viewBox="0 0 32 32">
-						<circle cx="16" cy="16" r="12" />
-						<path d="M16 10v12M10 16h12" />
-					</svg>
-				</span>
-				<span>Add Income</span>
-			</button>
+				<svg viewBox="0 0 32 32">
+					<circle cx="16" cy="16" r="12" />
+					<path d="M16 10v12M10 16h12" />
+				</svg>
+			</QuickActionButton>
 
 			<button class="quick-action expense-action" type="button">
 				<span class="quick-action-icon" aria-hidden="true">
