@@ -10,6 +10,7 @@
 	import { getIncomeRecords, saveIncomeRecord, type IncomeRecord } from '$lib/income-storage.js';
 	import CreatableCombobox from '$lib/components/CreatableCombobox.svelte';
 	import CreatePasswordForm from '$lib/components/CreatePasswordForm.svelte';
+	import DismissibleNotice from '$lib/components/DismissibleNotice.svelte';
 	import QuickActionButton from '$lib/components/QuickActionButton.svelte';
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 
@@ -264,21 +265,9 @@
 		</header>
 
 		{#if isDataLossNoticeVisible}
-			<aside class="data-loss-notice" role="note">
-				<span class="data-loss-notice-icon" aria-hidden="true">⚠</span>
-				<p>
-					<strong>
-						Without the password unencrypted data will be saved to the browser storage.
-					</strong>
-				</p>
-				<button
-					class="data-loss-notice-close"
-					type="button"
-					aria-label="Dismiss warning"
-					onclick={() => (isDataLossNoticeVisible = false)}>
-					<span class="close-button-icon" aria-hidden="true"></span>
-				</button>
-			</aside>
+			<DismissibleNotice
+				message="Without the password unencrypted data will be saved to the browser storage."
+				ondismiss={() => (isDataLossNoticeVisible = false)} />
 		{/if}
 
 		{#if isPasswordCardVisible}
