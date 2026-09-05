@@ -9,11 +9,12 @@
 
 	import { APP_NAME } from '$lib/config.js';
 	import { getIncomeRecords, saveIncomeRecord, type IncomeRecord } from '$lib/income-storage.js';
+
+	import Header from '$lib/components/Header.svelte';
 	import CreatableCombobox from '$lib/components/CreatableCombobox.svelte';
 	import CreatePasswordForm from '$lib/components/CreatePasswordForm.svelte';
 	import DismissibleNotice from '$lib/components/DismissibleNotice.svelte';
 	import QuickActionButton from '$lib/components/QuickActionButton.svelte';
-	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 
 	const ROUTE_TITLE = 'Balance';
 	const defaultIncomeCategories = ['Salary', 'Freelance', 'Gift', 'Interest', 'Other'];
@@ -244,26 +245,7 @@
 
 <main class="balance-page">
 	<div class="balance-app">
-		<header class="balance-header">
-			<a class="brand" href={resolve('/')} aria-label="Back to Secure Money Tracker">
-				<span class="brand-mark" aria-hidden="true">
-					<img src="/favicon.png" alt="" />
-				</span>
-				<span><strong>Secure Money Tracker</strong></span>
-			</a>
-			<div class="header-actions">
-				<button
-					class="save-button"
-					type="button"
-					disabled={!isIncomeDataReady}
-					onclick={saveWallet}>
-					<span>💾</span>
-					<span>Export to file</span>
-				</button>
-				<span class="settings-button" aria-hidden="true">⚙</span>
-				<ThemeSwitcher />
-			</div>
-		</header>
+		<Header {isIncomeDataReady} {saveWallet} />
 
 		{#if isDataLossNoticeVisible}
 			<DismissibleNotice
