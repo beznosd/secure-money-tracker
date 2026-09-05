@@ -7,6 +7,7 @@
 	import { xchacha20poly1305 } from '@noble/ciphers/chacha.js';
 	import { managedNonce } from '@noble/ciphers/utils.js';
 
+	import { APP_NAME } from '$lib/config.js';
 	import { getIncomeRecords, saveIncomeRecord, type IncomeRecord } from '$lib/income-storage.js';
 	import CreatableCombobox from '$lib/components/CreatableCombobox.svelte';
 	import CreatePasswordForm from '$lib/components/CreatePasswordForm.svelte';
@@ -14,6 +15,7 @@
 	import QuickActionButton from '$lib/components/QuickActionButton.svelte';
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 
+	const ROUTE_TITLE = 'Balance';
 	const defaultIncomeCategories = ['Salary', 'Freelance', 'Gift', 'Interest', 'Other'];
 
 	let activityDateFilter = $state('today');
@@ -237,8 +239,7 @@
 </script>
 
 <svelte:head>
-	<title>Total Balance | Secure Money Tracker</title>
-	<meta name="description" content="Your private money overview." />
+	<title>{ROUTE_TITLE} | {APP_NAME}</title>
 </svelte:head>
 
 <main class="balance-page">

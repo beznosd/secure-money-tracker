@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { APP_NAME } from '$lib/config.js';
 	import SocialLinks from '$lib/components/SocialLinks.svelte';
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 </script>
 
 <svelte:head>
-	<title>Secure Money Tracker</title>
-	<meta name="description" content="A privacy-first money tracking app." />
+	<title>{APP_NAME}</title>
 </svelte:head>
 
 <main class="page-shell">
