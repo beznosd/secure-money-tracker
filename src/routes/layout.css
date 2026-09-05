@@ -1106,88 +1106,6 @@ html[data-theme='dark'] .page-shell {
 	text-align: right;
 	white-space: nowrap;
 }
-.debts-card {
-	display: none;
-	min-height: 122px;
-	margin-top: 16px;
-	padding: 20px 29px;
-	align-items: center;
-	gap: 24px;
-	border: 1px solid #e2d8fb;
-	border-radius: 22px;
-	background:
-		radial-gradient(circle at 13% 25%, rgba(227, 211, 255, 0.42), transparent 10rem),
-		linear-gradient(108deg, #faf8ff, #f8f5ff 58%, #fcfbff);
-	box-shadow: 0 7px 20px rgba(72, 48, 130, 0.1);
-}
-.debts-icon {
-	width: 74px;
-	height: 74px;
-	flex: 0 0 74px;
-	display: grid;
-	place-items: center;
-	color: #7c4bdc;
-	border: 1px solid #d9c7fa;
-	border-radius: 22px;
-	background: linear-gradient(145deg, #f3eaff, #e9dcff);
-	box-shadow: 0 4px 12px rgba(97, 60, 173, 0.08);
-}
-.debts-icon svg {
-	width: 48px;
-	height: 48px;
-	fill: none;
-	stroke: currentColor;
-	stroke-width: 2.2;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-}
-.debts-copy {
-	min-width: 0;
-}
-.debts-copy h2 {
-	margin: 0 0 4px;
-	font-size: 19px;
-	font-weight: 600;
-	line-height: 1.1;
-	letter-spacing: -0.35px;
-}
-.debts-amount {
-	margin: 0 0 5px;
-	color: #7650d4;
-	font-size: 29px;
-	font-weight: 700;
-	line-height: 1;
-	letter-spacing: -1px;
-}
-.debts-change {
-	margin: 0;
-	color: #15945a;
-	font-size: 15px;
-	font-weight: 650;
-	line-height: 1.15;
-	letter-spacing: -0.2px;
-	white-space: nowrap;
-}
-.debts-change span {
-	font-size: 1.24em;
-	vertical-align: -1px;
-}
-.debts-change em {
-	color: #737b8a;
-	font-style: normal;
-	font-weight: 450;
-}
-.debts-arrow {
-	width: 26px;
-	height: 26px;
-	margin-left: auto;
-	flex: 0 0 26px;
-	fill: none;
-	stroke: #8a91a0;
-	stroke-width: 2.4;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-}
 .quick-actions {
 	margin-top: 12px;
 	display: grid;
@@ -1965,38 +1883,6 @@ html[data-theme='dark'] .page-shell {
 		width: auto;
 		font-size: 12px;
 	}
-	.debts-card {
-		min-height: 105px;
-		margin-top: 13px;
-		padding: 15px;
-		gap: 13px;
-		border-radius: 17px;
-	}
-	.debts-icon {
-		width: 58px;
-		height: 58px;
-		flex-basis: 58px;
-		border-radius: 17px;
-	}
-	.debts-icon svg {
-		width: 38px;
-		height: 38px;
-	}
-	.debts-copy h2 {
-		font-size: 16px;
-	}
-	.debts-amount {
-		margin-bottom: 5px;
-		font-size: 24px;
-	}
-	.debts-change {
-		font-size: 11px;
-	}
-	.debts-arrow {
-		width: 20px;
-		height: 20px;
-		flex-basis: 20px;
-	}
 	.quick-actions {
 		margin-top: 10px;
 		gap: 6px;
@@ -2216,7 +2102,6 @@ html[data-theme='dark'] .balance-page {
 }
 html[data-theme='dark'] .brand small,
 html[data-theme='dark'] .balance-change em,
-html[data-theme='dark'] .debts-change em,
 html[data-theme='dark'] .expenses-progress-row p,
 html[data-theme='dark'] .overview-title-total,
 html[data-theme='dark'] .debt-overview-item small,
