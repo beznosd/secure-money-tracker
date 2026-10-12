@@ -98,6 +98,8 @@ html[data-theme='dark'] .page-shell {
 }
 
 .privacy-card {
+	width: min(100%, 540px);
+	margin: 0 auto;
 	border: 1px solid var(--line);
 	background: var(--surface);
 	border-radius: 12px;
@@ -192,6 +194,8 @@ html[data-theme='dark'] .page-shell {
 }
 
 .actions {
+	width: min(100%, 540px);
+	margin: 0 auto;
 	padding: 10px 0 0;
 	display: grid;
 	gap: 8px;
