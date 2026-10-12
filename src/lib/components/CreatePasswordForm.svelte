@@ -37,7 +37,7 @@
 	<aside class="app-password-notice" id="app-password-notice" role="note">
 		<p>
 			<strong>
-				Needed to encrypt data stored in web browser and for encryption of exported files.
+				Needed to encrypt data stored in browser and for encryption of exported files.
 			</strong>
 		</p>
 	</aside>

@@ -38,6 +38,9 @@ svg {
 	--blue: #2875ed;
 	position: relative;
 	min-height: 100vh;
+	min-height: 100svh;
+	display: flex;
+	flex-direction: column;
 	background:
 		radial-gradient(circle at 51% 16%, rgba(227, 238, 255, 0.25), transparent 27rem), var(--page-bg);
 	color: var(--ink);
@@ -47,9 +50,18 @@ svg {
 }
 .landing-theme-switcher {
 	position: absolute;
-	top: 24px;
-	right: 24px;
+	top: 16px;
+	right: 16px;
 	z-index: 1;
+}
+.page-shell .landing-theme-switcher .theme-switcher {
+	width: 40px;
+	height: 40px;
+	flex-basis: 40px;
+}
+.page-shell .landing-theme-switcher .theme-switcher svg {
+	width: 20px;
+	height: 20px;
 }
 html[data-theme='dark'] .page-shell {
 	--page-bg: #0b1327;
@@ -62,64 +74,64 @@ html[data-theme='dark'] .page-shell {
 }
 
 .hero {
-	width: min(100% - 32px, 640px);
+	width: min(100% - 32px, 590px);
 	margin: 0 auto;
-	padding: 48px 0 25px;
+	padding: 28px 0 16px;
 }
 .intro {
 	text-align: center;
-	padding: 0 0 24px;
+	padding: 0 0 16px;
 }
 .page-shell h1 {
 	margin: 0;
-	font-size: clamp(34px, 4.6vw, 49px);
-	letter-spacing: -2px;
+	font-size: clamp(32px, 4vw, 42px);
+	letter-spacing: -1.6px;
 	line-height: 1.1;
 	font-weight: 700;
 }
 .intro p {
-	margin: 10px 0 0;
+	margin: 6px 0 0;
 	color: var(--muted);
-	font-size: 20px;
+	font-size: 18px;
 	line-height: 1.25;
-	letter-spacing: -0.45px;
+	letter-spacing: -0.3px;
 }
 
 .privacy-card {
 	border: 1px solid var(--line);
 	background: var(--surface);
-	border-radius: 14px;
-	padding: 4px 22px 7px;
-	box-shadow: 0 3px 8px rgba(19, 42, 81, 0.04);
+	border-radius: 12px;
+	padding: 2px 18px 4px;
+	box-shadow: 0 2px 6px rgba(19, 42, 81, 0.035);
 }
 .privacy-item {
-	min-height: 79px;
+	min-height: 65px;
 	display: flex;
 	align-items: center;
-	gap: 16px;
-	padding: 9px 0;
+	gap: 13px;
+	padding: 3px 0;
 	border-bottom: 1px solid var(--line);
 }
 .privacy-item.last-item {
 	border: 0;
-	align-items: flex-start;
-	padding-top: 10px;
+	align-items: center;
+	padding-top: 7px;
 }
 .icon-badge {
 	flex: 0 0 auto;
-	width: 46px;
-	height: 46px;
+	width: 38px;
+	height: 38px;
 	display: grid;
 	place-items: center;
 	border: 1px solid;
-	border-radius: 11px;
+	border-radius: 9px;
 }
 .icon-badge svg {
-	width: 30px;
-	height: 30px;
+	width: 24px;
+	height: 24px;
 	fill: none;
 	stroke: currentColor;
-	stroke-width: 2.2;
+	stroke-width: 2;
 	stroke-linecap: round;
 	stroke-linejoin: round;
 }
@@ -139,17 +151,17 @@ html[data-theme='dark'] .page-shell {
 	border-color: #e8ddff;
 }
 .privacy-item h2 {
-	margin: 0 0 5px;
-	font-size: 19px;
-	letter-spacing: -0.35px;
+	margin: 0 0 3px;
+	font-size: 17px;
+	letter-spacing: -0.25px;
 	line-height: 1.1;
 	font-weight: 600;
 }
 .privacy-item p {
 	margin: 0;
 	color: var(--muted);
-	font-size: 15px;
-	line-height: 1.45;
+	font-size: 14px;
+	line-height: 1.35;
 	letter-spacing: -0.12px;
 }
 .all-features {
@@ -180,20 +192,20 @@ html[data-theme='dark'] .page-shell {
 }
 
 .actions {
-	padding: 15px 5px 0;
+	padding: 10px 0 0;
 	display: grid;
-	gap: 11px;
+	gap: 8px;
 }
 .action-card {
-	min-height: 76px;
-	padding: 11px 20px 11px 22px;
+	min-height: 62px;
+	padding: 8px 14px;
 	display: flex;
 	align-items: center;
-	gap: 19px;
+	gap: 13px;
 	border: 1px solid var(--line);
-	border-radius: 13px;
+	border-radius: 11px;
 	background: var(--surface);
-	box-shadow: 0 4px 9px rgba(19, 42, 81, 0.05);
+	box-shadow: 0 2px 7px rgba(19, 42, 81, 0.045);
 	transition:
 		transform 0.2s ease,
 		box-shadow 0.2s ease,
@@ -208,23 +220,23 @@ html[data-theme='dark'] .page-shell {
 	color: #fff;
 	border-color: #11bd70;
 	background: linear-gradient(112deg, #13b970, #14bf70 60%, #18c07a);
-	box-shadow: 0 8px 14px rgba(10, 173, 99, 0.17);
+	box-shadow: 0 5px 11px rgba(10, 173, 99, 0.15);
 }
 .primary-action:hover {
 	border-color: #20d487;
 	box-shadow: 0 12px 24px rgba(10, 173, 99, 0.28);
 }
 .action-icon {
-	width: 42px;
-	height: 42px;
-	flex: 0 0 42px;
-	border-radius: 10px;
+	width: 36px;
+	height: 36px;
+	flex: 0 0 36px;
+	border-radius: 8px;
 	display: grid;
 	place-items: center;
 }
 .action-icon svg {
-	width: 25px;
-	height: 25px;
+	width: 21px;
+	height: 21px;
 	fill: none;
 	stroke: currentColor;
 	stroke-width: 2.7;
@@ -242,16 +254,16 @@ html[data-theme='dark'] .page-shell {
 }
 .action-card strong {
 	display: block;
-	font-size: 19px;
+	font-size: 17px;
 	font-weight: 600;
-	letter-spacing: -0.45px;
+	letter-spacing: -0.3px;
 	line-height: 1.2;
 }
 .action-card small {
 	display: block;
-	margin-top: 5px;
+	margin-top: 3px;
 	color: var(--muted);
-	font-size: 15px;
+	font-size: 14px;
 	line-height: 1.1;
 }
 .primary-action small {
@@ -259,8 +271,8 @@ html[data-theme='dark'] .page-shell {
 }
 .arrow {
 	margin-left: auto;
-	width: 23px;
-	height: 23px;
+	width: 19px;
+	height: 19px;
 	fill: none;
 	stroke: currentColor;
 	stroke-width: 2.6;
@@ -269,37 +281,43 @@ html[data-theme='dark'] .page-shell {
 }
 
 .footer {
+	margin-top: auto;
 	border-top: 1px solid var(--line);
 	background: var(--surface);
 }
 .footer-content {
-	width: min(100% - 32px, 642px);
+	width: min(100% - 32px, 590px);
+	min-height: 64px;
 	margin: 0 auto;
-	padding: 25px 5px 19px;
+	display: flex;
+	align-items: center;
+	padding: 0;
 }
 .social-links {
-	margin-top: 22px;
+	width: 100%;
+	margin-top: 0;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 20px;
+	gap: 16px;
 }
 .social-links__platforms {
 	display: flex;
 	align-items: center;
-	gap: 15px;
+	gap: 12px;
 }
 .social-links__platforms a {
-	width: 25px;
-	height: 25px;
+	width: 22px;
+	height: 22px;
 	justify-content: center;
 }
 .social-links a {
-	font-size: 15px;
+	font-size: 14px;
 	font-weight: 500;
+	line-height: 1;
 	display: flex;
 	align-items: center;
-	gap: 11px;
+	gap: 8px;
 	transition:
 		color 0.2s,
 		transform 0.2s;
@@ -309,23 +327,23 @@ html[data-theme='dark'] .page-shell {
 	transform: translateY(-2px);
 }
 .social-links svg {
-	width: 25px;
-	height: 25px;
+	width: 22px;
+	height: 22px;
 	fill: var(--ink);
 }
 .social-links .youtube {
-	width: 29px;
-	height: 21px;
+	width: 25px;
+	height: 18px;
 	fill: #ff2029;
 }
 .social-links .bluesky {
-	width: 25px;
-	height: 22px;
+	width: 22px;
+	height: 20px;
 	fill: #1687e8;
 }
 .social-links .x-icon {
-	width: 22px;
-	height: 22px;
+	width: 20px;
+	height: 20px;
 }
 .social-links .instagram {
 	fill: none;
@@ -336,43 +354,10 @@ html[data-theme='dark'] .page-shell {
 	fill: white;
 }
 .social-links .heart {
-	width: 24px;
+	width: 21px;
 	fill: none;
 	stroke: #ff356d;
 	stroke-width: 2.6;
-}
-.progress-label {
-	display: flex;
-	justify-content: space-between;
-	font-size: 16px;
-	font-weight: 500;
-}
-.progress-track {
-	height: 11px;
-	margin-top: 10px;
-	overflow: hidden;
-	border-radius: 999px;
-	background: #e8edf4;
-}
-.progress-track span {
-	display: block;
-	width: 1%;
-	height: 100%;
-	border-radius: inherit;
-	background: linear-gradient(90deg, #13bf71, #0bbd73);
-}
-.progress-caption {
-	display: block;
-	margin: 11px 0 18px;
-	color: var(--muted);
-	text-align: center;
-	font-size: 14px;
-}
-.progress-link {
-	transition: color 0.2s ease;
-}
-.progress-link:hover {
-	color: var(--blue);
 }
 .built-note {
 	margin: 0;
@@ -393,51 +378,51 @@ html[data-theme='dark'] .page-shell {
 
 @media (max-width: 620px) {
 	.landing-theme-switcher {
-		top: 14px;
-		right: 14px;
+		top: 10px;
+		right: 10px;
 	}
 	.hero {
-		width: min(100% - 24px, 640px);
-		padding: 36px 0 20px;
+		width: min(100% - 20px, 590px);
+		padding: 24px 0 14px;
 	}
 	.intro {
-		padding-bottom: 20px;
+		padding-bottom: 14px;
 	}
 	.page-shell h1 {
-		font-size: 32px;
-		letter-spacing: -1.4px;
+		font-size: 30px;
+		letter-spacing: -1.2px;
 	}
 	.intro p {
-		font-size: 17px;
+		font-size: 16px;
 	}
 	.privacy-card {
-		padding: 3px 13px 5px;
+		padding: 2px 10px 4px;
 	}
 	.privacy-item {
-		min-height: 74px;
-		gap: 12px;
-		padding: 8px 0;
+		min-height: 62px;
+		gap: 10px;
+		padding: 7px 0;
 	}
 	.privacy-item.last-item {
-		min-height: 82px;
-		padding-top: 9px;
+		min-height: 68px;
+		padding-top: 7px;
 	}
 	.icon-badge {
-		width: 42px;
-		height: 42px;
-		border-radius: 10px;
+		width: 36px;
+		height: 36px;
+		border-radius: 8px;
 	}
 	.icon-badge svg {
-		width: 27px;
-		height: 27px;
+		width: 22px;
+		height: 22px;
 	}
 	.privacy-item h2 {
 		font-size: 16px;
-		margin-bottom: 4px;
+		margin-bottom: 3px;
 	}
 	.privacy-item p {
 		font-size: 13px;
-		line-height: 1.4;
+		line-height: 1.35;
 	}
 	.wide-only {
 		display: none;
@@ -451,78 +436,68 @@ html[data-theme='dark'] .page-shell {
 		height: 16px;
 	}
 	.actions {
-		padding: 13px 0 0;
-		gap: 9px;
+		padding: 9px 0 0;
+		gap: 7px;
 	}
 	.action-card {
-		min-height: 70px;
-		padding: 9px 13px;
-		gap: 11px;
-		border-radius: 12px;
+		min-height: 58px;
+		padding: 7px 11px;
+		gap: 10px;
+		border-radius: 10px;
 	}
 	.action-icon {
-		width: 38px;
-		height: 38px;
-		flex-basis: 38px;
-		border-radius: 9px;
+		width: 34px;
+		height: 34px;
+		flex-basis: 34px;
+		border-radius: 8px;
 	}
 	.action-icon svg {
-		width: 23px;
-		height: 23px;
+		width: 20px;
+		height: 20px;
 	}
 	.action-card strong {
-		font-size: 17px;
+		font-size: 16px;
 	}
 	.action-card small {
-		margin-top: 4px;
+		margin-top: 2px;
 		font-size: 13px;
 	}
 	.arrow {
-		width: 20px;
+		width: 18px;
 	}
 	.footer-content {
-		width: min(100% - 24px, 642px);
-		padding: 21px 0 16px;
+		width: min(100% - 20px, 590px);
+		min-height: 58px;
+		padding: 0;
 	}
 	.social-links {
-		gap: 12px;
+		margin-top: 0;
+		gap: 10px;
 	}
 	.social-links__platforms {
 		gap: 10px;
 	}
 	.social-links__platforms a {
-		width: 23px;
-		height: 23px;
+		width: 21px;
+		height: 21px;
 	}
 	.social-links__support {
 		white-space: nowrap;
 	}
 	.social-links a {
-		gap: 7px;
+		gap: 6px;
 		font-size: 13px;
 	}
 	.social-links svg {
-		width: 23px;
-		height: 23px;
+		width: 21px;
+		height: 21px;
 	}
 	.social-links .youtube {
-		width: 27px;
-		height: 20px;
+		width: 24px;
+		height: 18px;
 	}
 	.social-links .heart {
-		width: 23px;
-	}
-	.progress-label {
-		margin-top: 0;
-		font-size: 15px;
-	}
-	.progress-track {
-		height: 10px;
-		margin-top: 9px;
-	}
-	.progress-caption {
-		font-size: 13px;
-		margin: 9px 0 15px;
+		width: 20px;
 	}
 	.built-note {
 		font-size: 14px;
@@ -2090,9 +2065,6 @@ html[data-theme='dark'] .folder {
 html[data-theme='dark'] .violet {
 	border-color: #4b3a70;
 	background: #281f40;
-}
-html[data-theme='dark'] .progress-track {
-	background: #26344c;
 }
 html[data-theme='dark'] .balance-page {
 	color: #edf2fa;

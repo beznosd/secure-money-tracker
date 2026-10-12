@@ -104,14 +104,6 @@
 
 	<footer class="footer">
 		<div class="footer-content">
-			<div class="progress-label">
-				<span>MVP Progress</span>
-				<span>1%</span>
-			</div>
-			<div class="progress-track"><span></span></div>
-			<a class="progress-caption progress-link" href="#features">
-				See feature list and upcoming updates
-			</a>
 			<SocialLinks />
 		</div>
 	</footer>
